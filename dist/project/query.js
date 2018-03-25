@@ -7,9 +7,9 @@ var GetProjectQuery = {
     type: type_1.ProjectType,
     description: type_1.ProjectType.description,
     args: {
-        id: {
-            type: new graphql_1.GraphQLNonNull(graphql_1.GraphQLID),
-            description: 'The project id'
+        name: {
+            type: new graphql_1.GraphQLNonNull(graphql_1.GraphQLString),
+            description: 'The project name'
         }
     },
     resolve: function (source, args) {

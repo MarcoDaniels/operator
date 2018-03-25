@@ -1,14 +1,14 @@
 import {ProjectType} from './type'
-import {GraphQLID, GraphQLList, GraphQLNonNull, GraphQLObjectType} from 'graphql'
+import {GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString} from 'graphql'
 import {getProject, getProjects} from './data'
 
 const GetProjectQuery = {
     type: ProjectType,
     description: ProjectType.description,
     args: {
-        id: {
-            type: new GraphQLNonNull(GraphQLID),
-            description: 'The project id'
+        name: {
+            type: new GraphQLNonNull(GraphQLString),
+            description: 'The project name'
         }
     },
     resolve: (source:any, args: any) => {
