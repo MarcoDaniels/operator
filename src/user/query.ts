@@ -1,20 +1,25 @@
-import {GraphQLList, GraphQLObjectType} from 'graphql'
-import {UserType} from './type'
+import {GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString} from 'graphql'
+import {User} from './type'
 import {getUser, getUsers} from './data'
 
 const GetUserQuery = {
-    type: UserType,
-    description: UserType.description,
-    // require arguments
+    type: User,
+    description: User.description,
+    args: {
+        name: {
+            type: new GraphQLNonNull(GraphQLString),
+            description: 'The user name'
+        }
+    },
     resolve: (source: any, args: any) => {
         return getUser(args)
     }
 }
 
 const ListUserQuery = {
-    type: new GraphQLList(UserType),
-    description: UserType.description,
-    resolve: (source: any, args: any) => {
+    type: new GraphQLList(User),
+    description: User.description,
+    resolve: () => {
         return getUsers()
     }
 }

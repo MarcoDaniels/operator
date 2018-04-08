@@ -1,24 +1,31 @@
-import {GraphQLID, GraphQLObjectType, GraphQLString} from 'graphql'
+import {GraphQLList, GraphQLObjectType, GraphQLString} from 'graphql'
 
-export const UserType: GraphQLObjectType = new GraphQLObjectType({
+export interface UserType {
+    name: string
+    title: string
+    description: string
+    welcomeMessage: string[]
+}
+
+export const User: GraphQLObjectType = new GraphQLObjectType({
     name: 'User',
     description: 'This is user.',
     fields: () => ({
-        id: {
-            type: GraphQLID,
-            description: 'The user id.'
-        },
         name: {
             type: GraphQLString,
-            description: 'The user\'s name.'
+            description: 'The user name.'
         },
-        email: {
+        title: {
             type: GraphQLString,
-            description: 'The user\'s primary email address.'
+            description: 'The user title.'
         },
-        phone: {
+        description: {
             type: GraphQLString,
-            description: 'The user\'s primary phone number.'
+            description: 'The user description.'
         },
+        welcomeMessage: {
+            type: new GraphQLList(GraphQLString),
+            description: 'The user welcome message'
+        }
     })
 })

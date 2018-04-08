@@ -1,11 +1,33 @@
-export function getUser(args: any) {
-    return {id: 1, name: 'user 1', email: 'user1@example.com', phone: '111 111 111'}
+import {UserType} from './type'
+
+const users: UserType[] = [
+    {
+        name: 'root',
+        title: 'I am root',
+        description: 'I am root',
+        welcomeMessage: [
+            'I am a cybernetic organism. Living components, classes, modules, services and templates over a HTML endoskeleton.',
+            'My mission is to execute and interpret commands submited by you!'
+        ]
+    },
+    {
+        name: 'Marco Daniel',
+        title: 'I am Marco Daniel',
+        description: 'Nothing',
+        welcomeMessage: [
+            'Hey',
+        ]
+    },
+]
+
+export function getUser(args: any): UserType {
+    const [user] = users.filter((user) => {
+        return user.name == args.name
+    })
+
+    return user
 }
 
-export function getUsers() {
-    return [
-        {id: 1, name: 'user 1', email: 'user1@example.com', phone: '111 111 111'},
-        {id: 2, name: 'user 2', email: 'user2@example.com', phone: '111 222 222'},
-        {id: 3, name: 'user 3', email: 'user3@example.com', phone: '111 333 333'}
-    ]
+export function getUsers(): UserType[] {
+    return users
 }
