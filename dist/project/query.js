@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var type_1 = require("./type");
-var graphql_1 = require("graphql");
-var data_1 = require("./data");
-var type_2 = require("../help/type");
-var data_2 = require("../help/data");
-var GetProjectQuery = {
+const type_1 = require("./type");
+const graphql_1 = require("graphql");
+const data_1 = require("./data");
+const type_2 = require("../help/type");
+const data_2 = require("../help/data");
+const GetProjectQuery = {
     type: type_1.ProjectType,
     description: type_1.ProjectType.description,
     args: {
@@ -14,33 +14,31 @@ var GetProjectQuery = {
             description: 'The project name'
         }
     },
-    resolve: function (source, args) {
+    resolve: (source, args) => {
         return data_1.getProject(args);
     }
 };
-var ListProjectQuery = {
+const ListProjectQuery = {
     type: new graphql_1.GraphQLList(type_1.ProjectType),
     description: type_1.ProjectType.description,
-    resolve: function () {
+    resolve: () => {
         return data_1.getProjects();
     }
 };
-var HelpProjectQuery = {
+const HelpProjectQuery = {
     type: type_2.HelpType,
     description: type_2.HelpType.description,
-    resolve: function () {
-        var temp = data_2.projectHelp();
-        console.log('result: ', temp);
-        return temp;
+    resolve: () => {
+        return data_2.projectHelp();
     }
 };
 exports.ProjectQuery = new graphql_1.GraphQLObjectType({
     name: 'ProjectQuery',
     description: 'The projects base query',
-    fields: function () { return ({
+    fields: () => ({
         get: GetProjectQuery,
         list: ListProjectQuery,
         help: HelpProjectQuery
-    }); }
+    })
 });
 //# sourceMappingURL=query.js.map

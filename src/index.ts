@@ -1,4 +1,4 @@
-import { https } from 'firebase-functions'
+import { https, HttpsFunction } from 'firebase-functions'
 import * as express from 'express'
 import * as cors from 'cors'
 import * as bodyParser from 'body-parser'
@@ -6,8 +6,9 @@ import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 import { schema } from './schema'
 
 const setupGraphQLServer = () => {
-    const GRAPHQL = "/graphql"
-    const GRAPHIQL = "/graphiql"
+    const PORT = Number(process.env.PORT) || 3000
+    const GRAPHQL = '/graphql'
+    const GRAPHIQL = '/graphiql'
 
     const server = express()
 
@@ -27,7 +28,12 @@ const setupGraphQLServer = () => {
         })
     )
 
+    server.listen(PORT, () => {
+        console.log(`GraphQL api on http://localhost:${PORT}${GRAPHQL}`)
+        console.log(`GraphiQL interface on http://localhost:${PORT}${GRAPHIQL}`)
+    })
+
     return server
 }
 
-export const operator = https.onRequest(setupGraphQLServer())
+export const operator: HttpsFunction = https.onRequest(setupGraphQLServer())

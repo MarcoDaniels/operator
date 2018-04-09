@@ -1,26 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var graphql_1 = require("graphql");
-exports.UserType = new graphql_1.GraphQLObjectType({
+const graphql_1 = require("graphql");
+exports.User = new graphql_1.GraphQLObjectType({
     name: 'User',
     description: 'This is user.',
-    fields: function () { return ({
-        id: {
-            type: graphql_1.GraphQLID,
-            description: 'The user id.'
-        },
+    fields: () => ({
         name: {
             type: graphql_1.GraphQLString,
-            description: 'The user\'s name.'
+            description: 'The user name.'
         },
-        email: {
+        title: {
             type: graphql_1.GraphQLString,
-            description: 'The user\'s primary email address.'
+            description: 'The user title.'
         },
-        phone: {
+        description: {
             type: graphql_1.GraphQLString,
-            description: 'The user\'s primary phone number.'
+            description: 'The user description.'
         },
-    }); }
+        welcomeMessage: {
+            type: new graphql_1.GraphQLList(graphql_1.GraphQLString),
+            description: 'The user welcome message'
+        }
+    })
 });
 //# sourceMappingURL=type.js.map

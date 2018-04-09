@@ -1,15 +1,33 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const users = [
+    {
+        name: 'root',
+        title: 'I am root',
+        description: 'I am root',
+        welcomeMessage: [
+            'I am a cybernetic organism. Living components, classes, modules, services and templates over a HTML endoskeleton.',
+            'My mission is to execute and interpret commands submited by you!'
+        ]
+    },
+    {
+        name: 'Marco Daniel',
+        title: 'I am Marco Daniel',
+        description: 'Nothing',
+        welcomeMessage: [
+            'Hey',
+        ]
+    },
+];
 function getUser(args) {
-    return { id: 1, name: 'user 1', email: 'user1@example.com', phone: '111 111 111' };
+    const [user] = users.filter((user) => {
+        return user.name == args.name;
+    });
+    return user;
 }
 exports.getUser = getUser;
 function getUsers() {
-    return [
-        { id: 1, name: 'user 1', email: 'user1@example.com', phone: '111 111 111' },
-        { id: 2, name: 'user 2', email: 'user2@example.com', phone: '111 222 222' },
-        { id: 3, name: 'user 3', email: 'user3@example.com', phone: '111 333 333' }
-    ];
+    return users;
 }
 exports.getUsers = getUsers;
 //# sourceMappingURL=data.js.map

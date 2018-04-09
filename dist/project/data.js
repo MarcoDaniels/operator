@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var projects = [
+const projects = [
     {
         id: "1",
         name: "Joyful Talks",
@@ -19,9 +19,9 @@ var projects = [
     }
 ];
 function getProject(args) {
-    var project = projects.filter(function (project) {
+    const [project] = projects.filter((project) => {
         return project.name == args.name;
-    })[0];
+    });
     return project;
 }
 exports.getProject = getProject;
