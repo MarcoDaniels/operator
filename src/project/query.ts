@@ -1,36 +1,37 @@
-import {ProjectType} from './type'
+import {Project} from './type'
 import {GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString} from 'graphql'
 import {getProject, getProjects} from './data'
-import {HelpType} from '../help/type'
-import {projectHelp} from '../help/data'
+import {Help, HelpType} from '../help/type'
+import {getHelp} from '../help/data'
 
 const GetProjectQuery = {
-    type: ProjectType,
-    description: ProjectType.description,
+    type: Project,
+    description: Project.description,
     args: {
         name: {
             type: new GraphQLNonNull(GraphQLString),
             description: 'The project name'
         }
     },
-    resolve: (source:any, args: any) => {
+    resolve: (source: any, args: any) => {
         return getProject(args)
     }
 }
 
 const ListProjectQuery = {
-    type: new GraphQLList(ProjectType),
-    description: ProjectType.description,
+    type: new GraphQLList(Project),
+    description: Project.description,
     resolve: () => {
         return getProjects()
     }
 }
 
 const HelpProjectQuery = {
-    type: HelpType,
-    description: HelpType.description,
+    type: Help,
+    description: Help.description,
     resolve: () => {
-        return projectHelp()
+        const args: HelpType = { type: 'project' }
+        return getHelp(args)
     }
 }
 

@@ -1,3 +1,2 @@
-export declare function projectHelp(): {
-    content: string[];
-};
+import { HelpType } from './type';
+export declare function getHelp(args: HelpType): HelpType;

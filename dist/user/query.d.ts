@@ -1,2 +1,2 @@
 import { GraphQLObjectType } from 'graphql';
-export declare const UserBaseQuery: GraphQLObjectType;
+export declare const UserQuery: GraphQLObjectType;

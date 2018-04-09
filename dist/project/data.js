@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const projects = [
     {
-        id: "1",
         name: "Joyful Talks",
         homepage: "http://joyfultalks.com",
         releaseDate: "June 2016",
@@ -10,7 +9,6 @@ const projects = [
         details: "Joyful talks run in CodeIgniter PHP, MySQL, jQuery and CSS Bootstrap."
     },
     {
-        id: "2",
         name: "Cerejas Mari'José",
         homepage: "http://marijose.pt",
         releaseDate: "May 2014",

@@ -1,13 +1,18 @@
-import {GraphQLID, GraphQLObjectType, GraphQLString} from 'graphql'
+import {GraphQLObjectType, GraphQLString} from 'graphql'
 
-export const ExperienceType: GraphQLObjectType = new  GraphQLObjectType({
+export type ExperienceType = {
+    position: string
+    workplace: string
+    startDate: string
+    endDate: string
+    location: string
+    details: string
+}
+
+export const Experience: GraphQLObjectType = new  GraphQLObjectType({
     name: 'Experience',
     description: 'Work experience.',
     fields: () => ({
-        id: {
-            type: GraphQLID,
-            description: 'The experience id.'
-        },
         position: {
             type: GraphQLString,
             description: 'The position name.'

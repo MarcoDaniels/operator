@@ -23,7 +23,7 @@ const ListUserQuery = {
         return data_1.getUsers();
     }
 };
-exports.UserBaseQuery = new graphql_1.GraphQLObjectType({
+exports.UserQuery = new graphql_1.GraphQLObjectType({
     name: 'UserQuery',
     description: 'The user query',
     fields: () => ({

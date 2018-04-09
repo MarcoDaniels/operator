@@ -1,6 +1,7 @@
-const projects = [
+import {ProjectType} from './type'
+
+const projects: ProjectType[] = [
     {
-        id: "1",
         name: "Joyful Talks",
         homepage: "http://joyfultalks.com",
         releaseDate: "June 2016",
@@ -8,7 +9,6 @@ const projects = [
         details: "Joyful talks run in CodeIgniter PHP, MySQL, jQuery and CSS Bootstrap."
     },
     {
-        id: "2",
         name: "Cerejas Mari'José",
         homepage: "http://marijose.pt",
         releaseDate: "May 2014",
@@ -17,7 +17,7 @@ const projects = [
     }
 ]
 
-export function getProject(args: any) {
+export function getProject(args: ProjectType): ProjectType {
     const [project] = projects.filter((project) => {
         return project.name == args.name
     })
@@ -25,6 +25,6 @@ export function getProject(args: any) {
     return project
 }
 
-export function getProjects() {
+export function getProjects(): ProjectType[] {
     return projects
 }

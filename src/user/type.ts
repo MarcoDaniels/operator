@@ -1,6 +1,6 @@
 import {GraphQLList, GraphQLObjectType, GraphQLString} from 'graphql'
 
-export interface UserType {
+export type UserType = {
     name: string
     title: string
     description: string

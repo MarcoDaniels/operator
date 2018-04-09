@@ -1,13 +1,17 @@
-import {GraphQLID, GraphQLObjectType, GraphQLString} from 'graphql'
+import {GraphQLObjectType, GraphQLString} from 'graphql'
 
-export const ProjectType: GraphQLObjectType = new GraphQLObjectType({
+export type ProjectType = {
+    name: string
+    homepage: string
+    releaseDate: string
+    description: string
+    details: string
+}
+
+export const Project: GraphQLObjectType = new GraphQLObjectType({
     name: 'Project',
     description: 'Personal or work developed project.',
     fields: () => ({
-        id: {
-            type: GraphQLID,
-            description: 'The project ID.'
-        },
         name: {
             type: GraphQLString,
             description: 'The name of the project.'

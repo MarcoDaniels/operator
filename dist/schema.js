@@ -9,8 +9,8 @@ const Query = new graphql_1.GraphQLObjectType({
     description: 'Root query',
     fields: () => ({
         user: {
-            type: query_1.UserBaseQuery,
-            description: query_1.UserBaseQuery.description,
+            type: query_1.UserQuery,
+            description: query_1.UserQuery.description,
             resolve: () => { return {}; }
         },
         project: {

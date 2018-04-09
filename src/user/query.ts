@@ -24,7 +24,7 @@ const ListUserQuery = {
     }
 }
 
-export const UserBaseQuery = new GraphQLObjectType({
+export const UserQuery = new GraphQLObjectType({
     name: 'UserQuery',
     description: 'The user query',
     fields: () => ({

@@ -1,14 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const graphql_1 = require("graphql");
-exports.ExperienceType = new graphql_1.GraphQLObjectType({
+exports.Experience = new graphql_1.GraphQLObjectType({
     name: 'Experience',
     description: 'Work experience.',
     fields: () => ({
-        id: {
-            type: graphql_1.GraphQLID,
-            description: 'The experience id.'
-        },
         position: {
             type: graphql_1.GraphQLString,
             description: 'The position name.'

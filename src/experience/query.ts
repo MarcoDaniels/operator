@@ -1,20 +1,37 @@
-import {ExperienceType} from './type'
-import {GraphQLList, GraphQLObjectType} from 'graphql'
+import {Experience} from './type'
+import {GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString} from 'graphql'
 import {getExperience, getExperiences} from './data'
+import {Help, HelpType} from '../help/type'
+import {getHelp} from '../help/data'
 
 const GetExperienceQuery = {
-    type: ExperienceType,
-    description: ExperienceType.description,
+    type: Experience,
+    description: Experience.description,
+    args: {
+        position: {
+            type: new GraphQLNonNull(GraphQLString),
+            description: 'The position of the experience.'
+        }
+    },
     resolve: (source: any, args: any) => {
         return getExperience(args)
     }
 }
 
 const ListExperienceQuery = {
-    type: new GraphQLList(ExperienceType),
-    description: ExperienceType.description,
-    resolve: (source: any, args: any) => {
+    type: new GraphQLList(Experience),
+    description: Experience.description,
+    resolve: () => {
         return getExperiences()
+    }
+}
+
+const HelpExperienceQuery = {
+    type: Help,
+    defaultStatus: Help.description,
+    resolve: () => {
+        const args: HelpType = { type: 'project' }
+        return getHelp(args)
     }
 }
 
@@ -23,6 +40,7 @@ export const ExperienceQuery = new GraphQLObjectType({
     description: 'The experience base query',
     fields: () => ({
         get: GetExperienceQuery,
-        list: ListExperienceQuery
+        list: ListExperienceQuery,
+        help: HelpExperienceQuery
     })
 })

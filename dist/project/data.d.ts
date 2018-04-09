@@ -1,16 +1,3 @@
-export declare function getProject(args: any): {
-    id: string;
-    name: string;
-    homepage: string;
-    releaseDate: string;
-    description: string;
-    details: string;
-};
-export declare function getProjects(): {
-    id: string;
-    name: string;
-    homepage: string;
-    releaseDate: string;
-    description: string;
-    details: string;
-}[];
+import { ProjectType } from './type';
+export declare function getProject(args: ProjectType): ProjectType;
+export declare function getProjects(): ProjectType[];

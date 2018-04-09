@@ -1,5 +1,5 @@
 import {GraphQLObjectType, GraphQLSchema} from 'graphql'
-import {UserBaseQuery} from './user/query'
+import {UserQuery} from './user/query'
 import {ProjectQuery} from './project/query'
 import {ExperienceQuery} from './experience/query'
 
@@ -8,8 +8,8 @@ const Query = new GraphQLObjectType({
     description: 'Root query',
     fields: () => ({
         user: {
-            type: UserBaseQuery,
-            description: UserBaseQuery.description,
+            type: UserQuery,
+            description: UserQuery.description,
             resolve: () => { return {} }
         },
         project: {
