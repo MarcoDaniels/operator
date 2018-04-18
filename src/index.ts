@@ -6,7 +6,7 @@ import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 import { schema } from './schema'
 
 const setupGraphQLServer = () => {
-    const PORT = Number(process.env.PORT) || 3000
+    const PORT = Number(process.env.PORT) || 4000
     const GRAPHQL = '/graphql'
     const GRAPHIQL = '/graphiql'
 

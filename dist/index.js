@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const apollo_server_express_1 = require("apollo-server-express");
 const schema_1 = require("./schema");
 const setupGraphQLServer = () => {
-    const PORT = Number(process.env.PORT) || 3000;
+    const PORT = Number(process.env.PORT) || 4000;
     const GRAPHQL = '/graphql';
     const GRAPHIQL = '/graphiql';
     const server = express();
