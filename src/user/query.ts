@@ -1,6 +1,6 @@
-import {GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString} from 'graphql'
-import {User} from './type'
-import {getUser, getUsers} from './data'
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
+import { User } from './type'
+import { getUser, getUsers } from './data'
 
 const GetUserQuery = {
     type: User,

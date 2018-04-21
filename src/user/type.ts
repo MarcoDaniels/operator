@@ -1,4 +1,4 @@
-import {GraphQLList, GraphQLObjectType, GraphQLString} from 'graphql'
+import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
 
 export type UserType = {
     name: string

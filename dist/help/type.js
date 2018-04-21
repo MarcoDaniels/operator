@@ -9,6 +9,10 @@ exports.Help = new graphql_1.GraphQLObjectType({
             type: graphql_1.GraphQLString,
             description: 'The agent type to help'
         },
+        usage: {
+            type: graphql_1.GraphQLString,
+            description: 'The usage of help command'
+        },
         content: {
             type: new graphql_1.GraphQLList(graphql_1.GraphQLString),
             description: 'Help content features'

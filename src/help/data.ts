@@ -1,11 +1,10 @@
-import {HelpType} from './type'
+import { HelpType } from './type'
 
 const helpData: HelpType[] = [
     {
         type: 'project',
+        usage: 'usage: project [<args>] [<project name>]',
         content: [
-            'usage: project [<args>] [<project name>]',
-            '',
             'project [--help]  Displays help options',
             'project [--list] [-ls] Lists all projects',
             'project [--info] [-i] <project name> Displays detailed information about the project',
@@ -14,9 +13,8 @@ const helpData: HelpType[] = [
     },
     {
         type: 'experience',
+        usage: 'usage: experience [<args>] [<experience position>]',
         content: [
-            'usage: experience [<args>] [<experience position>]',
-            '',
             'experience [--help]  Displays help options',
             'experience [--list] [-ls] Lists all work experiences',
             'experience [--info] [-i] <project name> Displays detailed information about the work experience'
@@ -26,7 +24,7 @@ const helpData: HelpType[] = [
 
 export function getHelp(args: HelpType): HelpType {
     const [help] = helpData.filter((help) => {
-        return help.type == args.type
+        return help.type === args.type
     })
 
     return help

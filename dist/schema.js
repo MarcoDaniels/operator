@@ -11,17 +11,23 @@ const Query = new graphql_1.GraphQLObjectType({
         user: {
             type: query_1.UserQuery,
             description: query_1.UserQuery.description,
-            resolve: () => { return {}; }
+            resolve: () => {
+                return {};
+            }
         },
         project: {
             type: query_2.ProjectQuery,
             description: query_2.ProjectQuery.description,
-            resolve: () => { return {}; }
+            resolve: () => {
+                return {};
+            }
         },
         experience: {
             type: query_3.ExperienceQuery,
             description: query_3.ExperienceQuery.description,
-            resolve: () => { return {}; }
+            resolve: () => {
+                return {};
+            }
         }
     })
 });

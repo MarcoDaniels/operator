@@ -1,4 +1,4 @@
-import {GraphQLObjectType, GraphQLString} from 'graphql'
+import { GraphQLObjectType, GraphQLString } from 'graphql'
 
 export type ExperienceType = {
     position: string
@@ -9,7 +9,7 @@ export type ExperienceType = {
     details: string
 }
 
-export const Experience: GraphQLObjectType = new  GraphQLObjectType({
+export const Experience: GraphQLObjectType = new GraphQLObjectType({
     name: 'Experience',
     description: 'Work experience.',
     fields: () => ({

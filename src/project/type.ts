@@ -1,4 +1,4 @@
-import {GraphQLObjectType, GraphQLString} from 'graphql'
+import { GraphQLObjectType, GraphQLString } from 'graphql'
 
 export type ProjectType = {
     name: string

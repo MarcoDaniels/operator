@@ -1,7 +1,7 @@
-import {GraphQLObjectType, GraphQLSchema} from 'graphql'
-import {UserQuery} from './user/query'
-import {ProjectQuery} from './project/query'
-import {ExperienceQuery} from './experience/query'
+import { GraphQLObjectType, GraphQLSchema } from 'graphql'
+import { UserQuery } from './user/query'
+import { ProjectQuery } from './project/query'
+import { ExperienceQuery } from './experience/query'
 
 const Query = new GraphQLObjectType({
     name: 'Query',
@@ -10,17 +10,23 @@ const Query = new GraphQLObjectType({
         user: {
             type: UserQuery,
             description: UserQuery.description,
-            resolve: () => { return {} }
+            resolve: () => {
+                return {}
+            }
         },
         project: {
             type: ProjectQuery,
             description: ProjectQuery.description,
-            resolve: () => { return {} }
+            resolve: () => {
+                return {}
+            }
         },
         experience: {
             type: ExperienceQuery,
             description: ExperienceQuery.description,
-            resolve: () => { return {} }
+            resolve: () => {
+                return {}
+            }
         }
     })
 })

@@ -2,18 +2,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const projects = [
     {
-        name: "Joyful Talks",
-        homepage: "http://joyfultalks.com",
-        releaseDate: "June 2016",
-        description: "Joyful Talks is a personal blog",
-        details: "Joyful talks run in CodeIgniter PHP, MySQL, jQuery and CSS Bootstrap."
+        name: 'Joyful Talks',
+        homepage: 'http://joyfultalks.com',
+        releaseDate: 'June 2016',
+        description: 'Joyful Talks is a personal blog',
+        details: 'Joyful talks run in CodeIgniter PHP, MySQL, jQuery and CSS Bootstrap.'
     },
     {
-        name: "Cerejas Mari'José",
-        homepage: "http://marijose.pt",
-        releaseDate: "May 2014",
-        description: "Website for a fruit company",
-        details: "Cerejas Mari'José runs in Laravel PHP framework, Bootstrap CSS, MySQL and jQuery."
+        name: 'Cerejas Mari\'José',
+        homepage: 'http://marijose.pt',
+        releaseDate: 'May 2014',
+        description: 'Website for a fruit company',
+        details: 'Cerejas Mari\'José runs in Laravel PHP framework, Bootstrap CSS, MySQL and jQuery.'
     }
 ];
 function getProject(args) {

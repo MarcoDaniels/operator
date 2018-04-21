@@ -1,8 +1,8 @@
-import {Experience} from './type'
-import {GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString} from 'graphql'
-import {getExperience, getExperiences} from './data'
-import {Help, HelpType} from '../help/type'
-import {getHelp} from '../help/data'
+import { Experience } from './type'
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
+import { getExperience, getExperiences } from './data'
+import { Help, HelpType } from '../help/type'
+import { getHelp } from '../help/data'
 
 const GetExperienceQuery = {
     type: Experience,
@@ -30,7 +30,7 @@ const HelpExperienceQuery = {
     type: Help,
     defaultStatus: Help.description,
     resolve: () => {
-        const args: HelpType = { type: 'project' }
+        const args: HelpType = {type: 'project'}
         return getHelp(args)
     }
 }
