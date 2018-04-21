@@ -3,17 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const helpData = [
     {
         type: 'project',
-        usage: 'usage: project [<args>] [<project name>]',
+        usage: 'project [<args>] [<project name>]',
         content: [
             'project [--help]  Displays help options',
             'project [--list] [-ls] Lists all projects',
             'project [--info] [-i] <project name> Displays detailed information about the project',
-            'project [--open] [-o] <project name> Opens project in a new tab'
         ]
     },
     {
         type: 'experience',
-        usage: 'usage: experience [<args>] [<experience position>]',
+        usage: 'experience [<args>] [<experience position>]',
         content: [
             'experience [--help]  Displays help options',
             'experience [--list] [-ls] Lists all work experiences',
