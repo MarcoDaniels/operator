@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const helpData = [
     {
         type: 'project',
+        description: 'Contains all the projects',
         usage: 'project [<args>] [<project name>]',
         content: [
             'project [--help]  Displays help options',
@@ -12,6 +13,7 @@ const helpData = [
     },
     {
         type: 'experience',
+        description: 'Contains all the work experiences',
         usage: 'experience [<args>] [<experience position>]',
         content: [
             'experience [--help]  Displays help options',
@@ -20,11 +22,15 @@ const helpData = [
         ]
     }
 ];
-function getHelp(args) {
+function getHelp() {
+    return helpData;
+}
+exports.getHelp = getHelp;
+function getHelpData(args) {
     const [help] = helpData.filter((help) => {
         return help.type === args.type;
     });
     return help;
 }
-exports.getHelp = getHelp;
+exports.getHelpData = getHelpData;
 //# sourceMappingURL=data.js.map

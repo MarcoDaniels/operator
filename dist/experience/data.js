@@ -2,31 +2,35 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const experiences = [
     {
-        position: 'Web Developer',
-        workplace: 'GulogGratis.dk',
-        startDate: 'September 2013',
-        endDate: 'today',
+        position: 'Software Developer @ Jysk Fynske Medier',
+        workplace: 'Jysk Fynske Medier',
+        from: 'September 2013',
+        to: 'today',
         location: 'Odense, Denmark',
-        details: 'Web Developer @ GulogGratis.dk A/S'
+        details: 'Creating web solutions for GulogGratis.dk. Maintenance of PHP monolith.\n' +
+            'Implementation of micro-services using Node.js, GraphQL and Typescript.\n' +
+            'PHP, JavaScript, TypeScript, Node.js, GraphQL, React.js, REST, gRPC, RabbitMQ, Solr, MySQL.'
     },
     {
-        position: 'Software Developer',
+        position: 'Software Developer @ SoftExpert',
         workplace: 'SoftExpert',
-        startDate: 'October 2011',
-        endDate: 'October 2012',
+        from: 'October 2011',
+        to: 'October 2012',
         location: 'Joinvile, Brazil',
-        details: 'Software Developer @ SoftExpert'
+        details: 'Implementation of Java aplications using Agile practices.\n' +
+            'Integration of 3D modeling software(Inventor, AutoCAD) with Document Management.\n' +
+            'Java Web, Servlets, PHP, JavaEE, SQL Server, Delphi, SVN.'
     }
 ];
-function getExperience(args) {
-    const [experience] = experiences.filter((experience) => {
-        return experience.position == args.position;
-    });
-    return experience;
-}
-exports.getExperience = getExperience;
 function getExperiences() {
     return experiences;
 }
 exports.getExperiences = getExperiences;
+function getExperience(args) {
+    const [experience] = experiences.filter((experience) => {
+        return experience.position === args.position;
+    });
+    return experience;
+}
+exports.getExperience = getExperience;
 //# sourceMappingURL=data.js.map

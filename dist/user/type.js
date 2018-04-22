@@ -9,10 +9,6 @@ exports.User = new graphql_1.GraphQLObjectType({
             type: graphql_1.GraphQLString,
             description: 'The user name.'
         },
-        title: {
-            type: graphql_1.GraphQLString,
-            description: 'The user title.'
-        },
         description: {
             type: graphql_1.GraphQLString,
             description: 'The user description.'

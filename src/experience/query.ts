@@ -2,7 +2,7 @@ import { Experience } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getExperience, getExperiences } from './data'
 import { Help, HelpType } from '../help/type'
-import { getHelp } from '../help/data'
+import { getHelpData } from '../help/data'
 
 const GetExperienceQuery = {
     type: Experience,
@@ -31,7 +31,7 @@ const HelpExperienceQuery = {
     defaultStatus: Help.description,
     resolve: () => {
         const args: HelpType = {type: 'project'}
-        return getHelp(args)
+        return getHelpData(args)
     }
 }
 

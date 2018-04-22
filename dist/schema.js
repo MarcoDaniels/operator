@@ -4,6 +4,7 @@ const graphql_1 = require("graphql");
 const query_1 = require("./user/query");
 const query_2 = require("./project/query");
 const query_3 = require("./experience/query");
+const query_4 = require("./help/query");
 const Query = new graphql_1.GraphQLObjectType({
     name: 'Query',
     description: 'Root query',
@@ -11,23 +12,22 @@ const Query = new graphql_1.GraphQLObjectType({
         user: {
             type: query_1.UserQuery,
             description: query_1.UserQuery.description,
-            resolve: () => {
-                return {};
-            }
+            resolve: () => { return {}; }
+        },
+        help: {
+            type: query_4.HelpQuery,
+            description: query_4.HelpQuery.description,
+            resolve: () => { return {}; }
         },
         project: {
             type: query_2.ProjectQuery,
             description: query_2.ProjectQuery.description,
-            resolve: () => {
-                return {};
-            }
+            resolve: () => { return {}; }
         },
         experience: {
             type: query_3.ExperienceQuery,
             description: query_3.ExperienceQuery.description,
-            resolve: () => {
-                return {};
-            }
+            resolve: () => { return {}; }
         }
     })
 });

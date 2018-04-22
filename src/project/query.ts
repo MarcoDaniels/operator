@@ -2,7 +2,7 @@ import { Project } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getProject, getProjects } from './data'
 import { Help, HelpType } from '../help/type'
-import { getHelp } from '../help/data'
+import { getHelpData } from '../help/data'
 
 const GetProjectQuery = {
     type: Project,
@@ -31,7 +31,7 @@ const HelpProjectQuery = {
     description: Help.description,
     resolve: () => {
         const args: HelpType = {type: 'project'}
-        return getHelp(args)
+        return getHelpData(args)
     }
 }
 

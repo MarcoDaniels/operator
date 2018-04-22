@@ -3,8 +3,8 @@ import { GraphQLObjectType, GraphQLString } from 'graphql'
 export type ExperienceType = {
     position: string
     workplace: string
-    startDate: string
-    endDate: string
+    from: string
+    to: string
     location: string
     details: string
 }
@@ -21,11 +21,11 @@ export const Experience: GraphQLObjectType = new GraphQLObjectType({
             type: GraphQLString,
             description: 'The workplace name.'
         },
-        startDate: {
+        from: {
             type: GraphQLString,
             description: 'The start date of the experience'
         },
-        endDate: {
+        to: {
             type: GraphQLString,
             description: 'The end date of the experience'
         },

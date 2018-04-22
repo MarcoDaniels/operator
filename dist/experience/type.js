@@ -13,11 +13,11 @@ exports.Experience = new graphql_1.GraphQLObjectType({
             type: graphql_1.GraphQLString,
             description: 'The workplace name.'
         },
-        startDate: {
+        from: {
             type: graphql_1.GraphQLString,
             description: 'The start date of the experience'
         },
-        endDate: {
+        to: {
             type: graphql_1.GraphQLString,
             description: 'The end date of the experience'
         },

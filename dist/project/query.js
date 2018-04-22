@@ -30,7 +30,7 @@ const HelpProjectQuery = {
     description: type_2.Help.description,
     resolve: () => {
         const args = { type: 'project' };
-        return data_2.getHelp(args);
+        return data_2.getHelpData(args);
     }
 };
 exports.ProjectQuery = new graphql_1.GraphQLObjectType({

@@ -3,7 +3,6 @@ import { UserType } from './type'
 const users: UserType[] = [
     {
         name: 'root',
-        title: 'I am root',
         description: 'I am root',
         welcomeMessage: [
             'I am a cybernetic organism. Living components, classes, modules, services and templates over a HTML endoskeleton.',
@@ -11,18 +10,18 @@ const users: UserType[] = [
         ]
     },
     {
-        name: 'Marco Daniel',
-        title: 'I am Marco Daniel',
-        description: 'Nothing',
+        name: 'Marco Daniel Martins',
+        description: 'Software Developer @ Jysk Fynske Medier',
         welcomeMessage: [
-            'Hey',
+            'Graduated in Computer Engineer at Universidade do Algarve in Faro, Portugal.',
+            'Passion for web development, programming, calculus, physics and everything logic.',
         ]
     },
 ]
 
 export function getUser(args: any): UserType {
     const [user] = users.filter((user) => {
-        return user.name == args.name
+        return user.name === args.name
     })
 
     return user

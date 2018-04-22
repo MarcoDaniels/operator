@@ -30,7 +30,7 @@ const HelpExperienceQuery = {
     defaultStatus: type_2.Help.description,
     resolve: () => {
         const args = { type: 'project' };
-        return data_2.getHelp(args);
+        return data_2.getHelpData(args);
     }
 };
 exports.ExperienceQuery = new graphql_1.GraphQLObjectType({
