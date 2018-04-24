@@ -2,6 +2,16 @@ import { HelpType } from './type'
 
 const helpData: HelpType[] = [
     {
+        type: 'about',
+        description: 'Contains all about the users',
+        usage: 'about [<args>] [<user_name>]',
+        content: [
+            'about [--help]  Displays help options',
+            'about [--list] [-ls] Lists all users',
+            'about [--info] [-i] <user_name> Displays detailed information about the user',
+        ]
+    },
+    {
         type: 'project',
         description: 'Contains all the projects',
         usage: 'project [<args>] [<project name>]',
@@ -12,7 +22,7 @@ const helpData: HelpType[] = [
             // 'project [--open] [-o] <project name> Opens project in a new tab'
         ]
     },
-    {
+    /*{
         type: 'experience',
         description: 'Contains all the work experiences',
         usage: 'experience [<args>] [<experience position>]',
@@ -21,7 +31,7 @@ const helpData: HelpType[] = [
             'experience [--list] [-ls] Lists all work experiences',
             'experience [--info] [-i] <project name> Displays detailed information about the work experience'
         ]
-    }
+    }*/
 ]
 
 export function getHelp() {

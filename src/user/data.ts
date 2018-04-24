@@ -1,12 +1,23 @@
-import { UserType } from './type'
+export type UserType = {
+    name: string
+    email: string
+    userName: string
+    title: string
+    description: string[]
+    welcomeMessage: string[]
+}
 
 const users: UserType[] = [
     {
-        name: 'root',
+        name: 'I am root',
         email: 'root@example.com',
         userName: 'root',
+        title: 'i am root @ my little virtual friend',
         description: [
-            'I am root'
+            'I am a machine designed by Marco Daniel Martins to interpret some of your commands.',
+            'My data consists in projects, work experiences, educations and interests about Marco Daniel.',
+            'In a more "human" way, I am a virtual command line interface Curriculum Vitae for Marco Daniel.',
+            'I am in a constant upgrade, but I hope my services can meet your expectations.',
         ],
         welcomeMessage: [
             'I am a cybernetic organism. Living components, classes, modules, services and templates over a HTML endoskeleton.',
@@ -17,12 +28,15 @@ const users: UserType[] = [
         name: 'Marco Daniel Martins',
         email: 'marcodanielmartins@gmail.com',
         userName: 'marcodaniels',
+        title: 'Software Developer @ Jysk Fynske Medier',
         description: [
-            'Software Developer @ Jysk Fynske Medier'
+            'I am a software developer with 5+ years of experience in building web and software applications.',
+            'Through my working experience I developed an ability to understand, adapt and work with large and complex code base applications.',
+            'I have an interest in problem-solving and (re)building solutions to improve software performance, with a particular interest in software architecture and agile methodologies.',
+            'Passion for programming, technology, physics, calculus and everything logic.',
         ],
         welcomeMessage: [
-            'Graduated in Computer Engineer at Universidade do Algarve in Faro, Portugal.',
-            'Passion for web development, programming, calculus, physics and everything logic.',
+            ' I build Software, Lego sets and Ikea furniture.',
         ]
     },
 ]
