@@ -1,4 +1,5 @@
 import { GraphQLObjectType, GraphQLString } from 'graphql'
+import { ProjectCollaboratorsQuery } from '../user/query'
 
 export type ProjectType = {
     name: string
@@ -6,6 +7,7 @@ export type ProjectType = {
     releaseDate: string
     description: string
     details: string
+    collaborators: string[]
 }
 
 export const Project: GraphQLObjectType = new GraphQLObjectType({
@@ -31,6 +33,9 @@ export const Project: GraphQLObjectType = new GraphQLObjectType({
         details: {
             type: GraphQLString,
             description: 'Details of the project specifications.'
+        },
+        collaborators: {
+            ...ProjectCollaboratorsQuery
         }
     })
 })

@@ -7,13 +7,13 @@ const GetUserQuery = {
     type: type_1.User,
     description: type_1.User.description,
     args: {
-        name: {
+        userName: {
             type: new graphql_1.GraphQLNonNull(graphql_1.GraphQLString),
-            description: 'The user name'
+            description: 'The user userName'
         }
     },
     resolve: (source, args) => {
-        return data_1.getUser(args);
+        return data_1.getUser(args.userName);
     }
 };
 const ListUserQuery = {
@@ -21,6 +21,13 @@ const ListUserQuery = {
     description: type_1.User.description,
     resolve: () => {
         return data_1.getUsers();
+    }
+};
+exports.ProjectCollaboratorsQuery = {
+    type: new graphql_1.GraphQLList(type_1.User),
+    description: type_1.User.description,
+    resolve: (source) => {
+        return data_1.getCollaborators(source.collaborators);
     }
 };
 exports.UserQuery = new graphql_1.GraphQLObjectType({

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const graphql_1 = require("graphql");
+const query_1 = require("../user/query");
 exports.Project = new graphql_1.GraphQLObjectType({
     name: 'Project',
     description: 'Personal or work developed project.',
@@ -24,7 +25,8 @@ exports.Project = new graphql_1.GraphQLObjectType({
         details: {
             type: graphql_1.GraphQLString,
             description: 'Details of the project specifications.'
-        }
+        },
+        collaborators: Object.assign({}, query_1.ProjectCollaboratorsQuery)
     })
 });
 //# sourceMappingURL=type.js.map

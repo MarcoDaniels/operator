@@ -5,5 +5,6 @@ export declare type ProjectType = {
     releaseDate: string;
     description: string;
     details: string;
+    collaborators: string[];
 };
 export declare const Project: GraphQLObjectType;

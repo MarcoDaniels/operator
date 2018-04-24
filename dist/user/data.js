@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const users = [
     {
         name: 'root',
+        email: 'root@example.com',
+        userName: 'root',
         description: 'I am root',
         welcomeMessage: [
             'I am a cybernetic organism. Living components, classes, modules, services and templates over a HTML endoskeleton.',
@@ -11,6 +13,8 @@ const users = [
     },
     {
         name: 'Marco Daniel Martins',
+        email: 'marcodanielmartins@gmail.com',
+        userName: 'marcodaniels',
         description: 'Software Developer @ Jysk Fynske Medier',
         welcomeMessage: [
             'Graduated in Computer Engineer at Universidade do Algarve in Faro, Portugal.',
@@ -18,9 +22,9 @@ const users = [
         ]
     },
 ];
-function getUser(args) {
+function getUser(userName) {
     const [user] = users.filter((user) => {
-        return user.name === args.name;
+        return user.userName === userName;
     });
     return user;
 }
@@ -29,4 +33,14 @@ function getUsers() {
     return users;
 }
 exports.getUsers = getUsers;
+function getCollaborators(userNames) {
+    const collaborators = [];
+    users.map(value => {
+        if (userNames.includes(value.userName)) {
+            collaborators.push(value);
+        }
+    });
+    return collaborators;
+}
+exports.getCollaborators = getCollaborators;
 //# sourceMappingURL=data.js.map

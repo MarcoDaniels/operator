@@ -9,6 +9,14 @@ exports.User = new graphql_1.GraphQLObjectType({
             type: graphql_1.GraphQLString,
             description: 'The user name.'
         },
+        email: {
+            type: graphql_1.GraphQLString,
+            description: 'The user email.'
+        },
+        userName: {
+            type: graphql_1.GraphQLString,
+            description: 'The user userName.'
+        },
         description: {
             type: graphql_1.GraphQLString,
             description: 'The user description.'

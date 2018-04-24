@@ -1,18 +1,19 @@
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { User } from './type'
-import { getUser, getUsers } from './data'
+import { getCollaborators, getUser, getUsers } from './data'
+import { ProjectType } from '../project/type'
 
 const GetUserQuery = {
     type: User,
     description: User.description,
     args: {
-        name: {
+        userName: {
             type: new GraphQLNonNull(GraphQLString),
-            description: 'The user name'
+            description: 'The user userName'
         }
     },
     resolve: (source: any, args: any) => {
-        return getUser(args)
+        return getUser(args.userName)
     }
 }
 
@@ -21,6 +22,14 @@ const ListUserQuery = {
     description: User.description,
     resolve: () => {
         return getUsers()
+    }
+}
+
+export const ProjectCollaboratorsQuery = {
+    type: new GraphQLList(User),
+    description: User.description,
+    resolve: (source: ProjectType) => {
+        return getCollaborators(source.collaborators)
     }
 }
 

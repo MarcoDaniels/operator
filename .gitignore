@@ -60,5 +60,8 @@ typings/
 # IDE
 .idea/
 
+# build/dist folders
+dist/
+
 # firebase
 .runtimeconfig.json

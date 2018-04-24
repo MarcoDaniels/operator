@@ -2,7 +2,9 @@ import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
 
 export type UserType = {
     name: string
-    description: string
+    email: string
+    userName: string
+    description: string[]
     welcomeMessage: string[]
 }
 
@@ -14,8 +16,16 @@ export const User: GraphQLObjectType = new GraphQLObjectType({
             type: GraphQLString,
             description: 'The user name.'
         },
-        description: {
+        email: {
             type: GraphQLString,
+            description: 'The user email.'
+        },
+        userName: {
+            type: GraphQLString,
+            description: 'The user userName.'
+        },
+        description: {
+            type: new GraphQLList(GraphQLString),
             description: 'The user description.'
         },
         welcomeMessage: {
