@@ -4,11 +4,11 @@ const helpData: HelpType[] = [
     {
         type: 'about',
         description: 'Contains all about the users',
-        usage: 'about [<args>] [<user_name>]',
+        usage: 'about [<args>] [<u_name>]',
         content: [
             'about [--help]  Displays help options',
             'about [--list] [-ls] Lists all users',
-            'about [--info] [-i] <user_name> Displays detailed information about the user',
+            'about [--info] [-i] <u_name> Displays detailed information about the user',
         ]
     },
     {
@@ -34,11 +34,11 @@ const helpData: HelpType[] = [
     }*/
 ]
 
-export function getHelp() {
+export function listHelp() {
     return helpData
 }
 
-export function getHelpData(args: HelpType): HelpType {
+export function getHelp(args: HelpType): HelpType {
     const [help] = helpData.filter((help) => {
         return help.type === args.type
     })

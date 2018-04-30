@@ -1,8 +1,6 @@
 import { Project } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getProject, getProjects } from './data'
-import { Help, HelpType } from '../help/type'
-import { getHelpData } from '../help/data'
 
 const GetProjectQuery = {
     type: Project,
@@ -26,21 +24,11 @@ const ListProjectQuery = {
     }
 }
 
-const HelpProjectQuery = {
-    type: Help,
-    description: Help.description,
-    resolve: () => {
-        const args: HelpType = {type: 'project'}
-        return getHelpData(args)
-    }
-}
-
 export const ProjectQuery = new GraphQLObjectType({
     name: 'ProjectQuery',
     description: 'The projects base query',
     fields: () => ({
         get: GetProjectQuery,
-        list: ListProjectQuery,
-        help: HelpProjectQuery
+        list: ListProjectQuery
     })
 })

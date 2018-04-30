@@ -1,8 +1,6 @@
 import { Experience } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getExperience, getExperiences } from './data'
-import { Help, HelpType } from '../help/type'
-import { getHelpData } from '../help/data'
 
 const GetExperienceQuery = {
     type: Experience,
@@ -26,21 +24,11 @@ const ListExperienceQuery = {
     }
 }
 
-const HelpExperienceQuery = {
-    type: Help,
-    defaultStatus: Help.description,
-    resolve: () => {
-        const args: HelpType = {type: 'project'}
-        return getHelpData(args)
-    }
-}
-
 export const ExperienceQuery = new GraphQLObjectType({
     name: 'ExperienceQuery',
     description: 'The experience base query',
     fields: () => ({
         get: GetExperienceQuery,
-        list: ListExperienceQuery,
-        help: HelpExperienceQuery
+        list: ListExperienceQuery
     })
 })
