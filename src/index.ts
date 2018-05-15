@@ -4,16 +4,20 @@ import * as cors from 'cors'
 import * as bodyParser from 'body-parser'
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 import { schema } from './schema'
+import { printSchema } from 'graphql'
 
 const setupGraphQLServer = () => {
-    const PORT = Number(process.env.PORT) || 4000
-    const GRAPHQL = '/graphql'
-    const GRAPHIQL = '/graphiql'
-
     const server = express()
 
+    server.use(cors())
+
+    server.options(
+        '*',
+        cors()
+    )
+
     server.use(
-        GRAPHQL,
+        '/graphql',
         cors(),
         bodyParser.json(),
         graphqlExpress({
@@ -22,16 +26,19 @@ const setupGraphQLServer = () => {
     )
 
     server.use(
-        GRAPHIQL,
+        '/graphiql',
         graphiqlExpress({
-            endpointURL: GRAPHQL
+            endpointURL: '/operator/graphql'
         })
     )
 
-    server.listen(PORT, () => {
-        console.log(`GraphQL api on http://localhost:${PORT}${GRAPHQL}`)
-        console.log(`GraphiQL interface on http://localhost:${PORT}${GRAPHIQL}`)
-    })
+    server.use(
+        '/schema',
+        (req, res) => {
+            res.set('Content-Type', 'text/plain')
+            res.send(printSchema(schema))
+        }
+    )
 
     return server
 }
