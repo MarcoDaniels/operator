@@ -1,6 +1,7 @@
 import { Experience } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getExperience, getExperiences } from './data'
+import { UserType } from '../user/type'
 
 const GetExperienceQuery = {
     type: Experience,
@@ -21,6 +22,14 @@ const ListExperienceQuery = {
     description: Experience.description,
     resolve: () => {
         return getExperiences()
+    }
+}
+
+export const ListUserExperienceQuery = {
+    type: new GraphQLList(Experience),
+    description: Experience.description,
+    resolve: (source: UserType) => {
+        return getExperiences(source)
     }
 }
 

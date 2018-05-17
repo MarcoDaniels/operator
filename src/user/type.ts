@@ -1,4 +1,14 @@
 import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
+import { ListUserExperienceQuery } from '../experience/query'
+
+export type UserType = {
+    name: string
+    email: string
+    userName: string
+    title: string
+    description: string[]
+    welcomeMessage: string[]
+}
 
 export const User: GraphQLObjectType = new GraphQLObjectType({
     name: 'User',
@@ -27,6 +37,9 @@ export const User: GraphQLObjectType = new GraphQLObjectType({
         welcomeMessage: {
             type: new GraphQLList(GraphQLString),
             description: 'The user welcome message'
+        },
+        experience: {
+            ...ListUserExperienceQuery
         }
     })
 })

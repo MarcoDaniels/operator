@@ -1,11 +1,4 @@
-export type UserType = {
-    name: string
-    email: string
-    userName: string
-    title: string
-    description: string[]
-    welcomeMessage: string[]
-}
+import { UserType } from './type'
 
 const users: UserType[] = [
     {
