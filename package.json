@@ -8,9 +8,9 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index",
+    "start": "dist/index.js",
     "build": "rm -rf dist/* && tsc --pretty",
-    "dev": "rm -rf dist/* && tsc --pretty && (node dist/index.js)"
+    "dev": "rm -rf dist/* && tsc --pretty && (NODE_ENV=dev node dist/index.js)"
   },
   "dependencies": {
     "apollo-server-express": "^1.3.2",

@@ -6,41 +6,47 @@ import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 import { schema } from './schema'
 import { printSchema } from 'graphql'
 
-const setupGraphQLServer = () => {
-    const server = express()
-
-    server.use(cors())
-
-    server.options(
-        '*',
-        cors()
-    )
-
-    server.use(
-        '/graphql',
-        cors(),
-        bodyParser.json(),
-        graphqlExpress({
-            schema
-        })
-    )
-
-    server.use(
-        '/graphiql',
-        graphiqlExpress({
-            endpointURL: '/operator/graphql'
-        })
-    )
-
-    server.use(
-        '/schema',
-        (req, res) => {
-            res.set('Content-Type', 'text/plain')
-            res.send(printSchema(schema))
-        }
-    )
-
-    return server
+let LOCAL = false
+if (process.env.NODE_ENV !== undefined) {
+    LOCAL = process.env.NODE_ENV === 'dev'
 }
 
-export const operator: HttpsFunction = https.onRequest(setupGraphQLServer())
+const PORT = Number(process.env.PORT) || 4000
+const GRAPH = '/graphql'
+const GRAPHQL = LOCAL ? GRAPH : '/operator/graphql'
+const GRAPHIQL = '/graphiql'
+
+const server = express()
+
+server.use(
+    GRAPH,
+    cors(),
+    bodyParser.json(),
+    graphqlExpress({
+        schema
+    })
+)
+
+server.use(
+    GRAPHIQL,
+    graphiqlExpress({
+        endpointURL: GRAPHQL
+    })
+)
+
+server.use(
+    '/schema',
+    (req, res) => {
+        res.set('Content-Type', 'text/plain')
+        res.send(printSchema(schema))
+    }
+)
+
+if (LOCAL) {
+    server.listen(PORT, () => {
+        console.log(`GraphQL api on http://localhost:${PORT}${GRAPH}`)
+        console.log(`GraphiQL interface on http://localhost:${PORT}${GRAPHIQL}`)
+    })
+}
+
+export const operator: HttpsFunction = https.onRequest(server)
