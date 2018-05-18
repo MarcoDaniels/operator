@@ -3,19 +3,48 @@ import { UserType } from '../user/type'
 
 const projects: ProjectType[] = [
     {
+        name: 'my little virtual friend',
+        homepage: 'http://mylittlevirtualfriend.com',
+        releaseDate: 'April 2018',
+        description: 'A virtual command line interface',
+        details: [
+            'My little virtual friend interprets commands inserted by the user.',
+            'Developed using Node.js, React.js, GraphQL and TypeScript.'
+        ],
+        collaborators: ['marcodaniels']
+    },
+    {
+        name: 'Marco Daniel Martins',
+        homepage: 'http://marcodaniels.com',
+        releaseDate: 'October 2017',
+        description: 'Online CV',
+        details: [
+            'Online CV.',
+            'Developed using HTML and CSS.'
+        ],
+        collaborators: ['marcodaniels']
+    },
+    {
         name: 'Joyful Talks',
         homepage: 'http://joyfultalks.com',
         releaseDate: 'June 2016',
         description: 'Joyful Talks is a personal blog',
-        details: 'Joyful talks run in CodeIgniter PHP, MySQL, jQuery and CSS Bootstrap.',
+        details: [
+            'Web application for a personal blog.',
+            'Developed using CodeIgniter PHP, MySQL, jQuery and CSS Bootstrap.'
+        ],
         collaborators: ['marcodaniels']
     },
     {
         name: 'Cerejas Mari\'José',
         homepage: 'http://marijose.pt',
         releaseDate: 'May 2014',
-        description: 'Website for a fruit company',
-        details: 'Cerejas Mari\'José runs in Laravel PHP framework, Bootstrap CSS, MySQL and jQuery.',
+        description: 'Cerejas Mari\'José is a fruit company',
+        details: [
+            'Web application development for a family fruit company.',
+            'Website with back-office and news feed management.',
+            'Developed using Laravel PHP framework and Bootstrap, MySQL, jQuery, HTML5 and CSS3.'
+        ],
         collaborators: ['marcodaniels']
     }
 ]
