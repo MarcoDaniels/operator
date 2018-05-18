@@ -1,4 +1,5 @@
 import { ProjectType } from './type'
+import { UserType } from '../user/type'
 
 const projects: ProjectType[] = [
     {
@@ -27,6 +28,13 @@ export function getProject(args: ProjectType): ProjectType {
     return project
 }
 
-export function getProjects(): ProjectType[] {
+export function getProjects(user?: UserType): ProjectType[] {
+    if (user) {
+        return projects.filter((project) => {
+            return project.collaborators.filter((collaborator) => {
+                return collaborator === user.userName
+            })
+        })
+    }
     return projects
 }

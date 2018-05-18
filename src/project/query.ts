@@ -1,6 +1,7 @@
 import { Project } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getProject, getProjects } from './data'
+import { UserType } from '../user/type'
 
 const GetProjectQuery = {
     type: Project,
@@ -21,6 +22,14 @@ const ListProjectQuery = {
     description: Project.description,
     resolve: () => {
         return getProjects()
+    }
+}
+
+export const ListUserProjectQuery = {
+    type: new GraphQLList(Project),
+    description: Project.description,
+    resolve: (source: UserType) => {
+        return getProjects(source)
     }
 }
 
