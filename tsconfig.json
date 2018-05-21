@@ -1,29 +1,9 @@
 {
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
-    "rootDir": "src/",
-    "outDir": "dist/",
-    "declaration": true,
+    "rootDir": "src",
+    "outDir": "dist",
     "experimentalDecorators": true,
-    "removeComments": true,
-    "module": "commonjs",
-    "target": "es2017",
-    "strictPropertyInitialization": true,
-    "allowJs": false,
-    "allowUnreachableCode": false,
-    "noImplicitAny": true,
-    "noFallthroughCasesInSwitch": true,
-    "strictFunctionTypes": true,
-    "sourceMap": true,
-    "lib": [
-      "es6",
-      "esnext"
-    ]
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "module": "commonjs"
+  }
 }
