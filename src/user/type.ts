@@ -3,6 +3,7 @@ import { ListUserExperienceQuery } from '../experience/query'
 import { ListUserProjectQuery } from '../project/query'
 import { ListUserEducationQuery } from '../education/query'
 import { ListUserSocialMediaQuery } from '../social/query'
+import { ListUserSkillsQuery } from '../skills/query'
 
 export type UserType = {
     userName: string
@@ -45,6 +46,9 @@ export const User: GraphQLObjectType = new GraphQLObjectType({
         interests: {
             type: new GraphQLList(GraphQLString),
             description: 'The user interests.'
+        },
+        skills: {
+            ...ListUserSkillsQuery
         },
         experience: {
             ...ListUserExperienceQuery

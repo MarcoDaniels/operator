@@ -23,7 +23,7 @@ const experiences: ExperienceType[] = [
         to: 'October 2012',
         location: 'Joinvile, Brazil',
         details: [
-            'Implementation of Java aplications using Agile practices.',
+            'Implementation of Java applications using Agile practices.',
             'Integration of 3D modeling software(Inventor, AutoCAD) with Document Management.',
             'Java Web, Servlets, PHP, JavaEE, SQL Server, Delphi, SVN.'
         ]
