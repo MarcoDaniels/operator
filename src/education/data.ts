@@ -18,11 +18,8 @@ const educations: EducationType[] = [
     }
 ]
 
-export function getEducations(user?: UserType) {
-    if (user) {
-        return educations.filter((education) => {
-            return education.userName === user.userName
-        })
-    }
-    return educations
+export function getEducations(user: UserType) {
+    return educations.filter((education) => {
+        return education.userName === user.userName
+    })
 }

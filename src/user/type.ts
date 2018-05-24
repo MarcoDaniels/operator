@@ -2,6 +2,7 @@ import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
 import { ListUserExperienceQuery } from '../experience/query'
 import { ListUserProjectQuery } from '../project/query'
 import { ListUserEducationQuery } from '../education/query'
+import { ListUserSocialMediaQuery } from '../social/query'
 
 export type UserType = {
     name: string
@@ -48,6 +49,9 @@ export const User: GraphQLObjectType = new GraphQLObjectType({
         },
         education: {
             ...ListUserEducationQuery
+        },
+        socialMedia: {
+            ...ListUserSocialMediaQuery
         }
     })
 })
