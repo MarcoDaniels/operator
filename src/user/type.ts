@@ -5,18 +5,23 @@ import { ListUserEducationQuery } from '../education/query'
 import { ListUserSocialMediaQuery } from '../social/query'
 
 export type UserType = {
+    userName: string
     name: string
     email: string
-    userName: string
     title: string
-    description: string[]
     welcomeMessage: string[]
+    description: string[]
+    interests: string[]
 }
 
 export const User: GraphQLObjectType = new GraphQLObjectType({
     name: 'User',
     description: 'This is user.',
     fields: () => ({
+        userName: {
+            type: GraphQLString,
+            description: 'The user userName.'
+        },
         name: {
             type: GraphQLString,
             description: 'The user name.'
@@ -25,21 +30,21 @@ export const User: GraphQLObjectType = new GraphQLObjectType({
             type: GraphQLString,
             description: 'The user email.'
         },
-        userName: {
-            type: GraphQLString,
-            description: 'The user userName.'
-        },
         title: {
             type: GraphQLString,
             description: 'The user title.'
+        },
+        welcomeMessage: {
+            type: new GraphQLList(GraphQLString),
+            description: 'The user welcome message.'
         },
         description: {
             type: new GraphQLList(GraphQLString),
             description: 'The user description.'
         },
-        welcomeMessage: {
+        interests: {
             type: new GraphQLList(GraphQLString),
-            description: 'The user welcome message'
+            description: 'The user interests.'
         },
         experience: {
             ...ListUserExperienceQuery
