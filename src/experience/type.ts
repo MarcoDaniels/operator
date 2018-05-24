@@ -28,11 +28,11 @@ export const Experience: GraphQLObjectType = new GraphQLObjectType({
         },
         from: {
             type: GraphQLString,
-            description: 'The start date of the experience'
+            description: 'The start date of the experience.'
         },
         to: {
             type: GraphQLString,
-            description: 'The end date of the experience'
+            description: 'The end date of the experience.'
         },
         location: {
             type: GraphQLString,

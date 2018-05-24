@@ -38,11 +38,3 @@ export function getExperiences(user?: UserType): ExperienceType[] {
     }
     return experiences
 }
-
-export function getExperience(args: ExperienceType): ExperienceType {
-    const [experience] = experiences.filter((experience) => {
-        return experience.position === args.position
-    })
-
-    return experience
-}
