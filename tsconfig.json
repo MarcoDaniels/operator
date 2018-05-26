@@ -4,6 +4,8 @@
     "rootDir": "src",
     "outDir": "dist",
     "experimentalDecorators": true,
-    "module": "commonjs"
+    "module": "commonjs",
+    "lib": ["es6", "esnext"],
+    "target": "es6"
   }
 }
