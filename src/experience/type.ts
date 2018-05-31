@@ -1,16 +1,6 @@
 import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
 import { GetUser } from '../user/query'
 
-export type ExperienceType = {
-    userName: string
-    position: string
-    workplace: string
-    from: string
-    to: string
-    location: string
-    details: string[]
-}
-
 export const Experience: GraphQLObjectType = new GraphQLObjectType({
     name: 'Experience',
     description: 'Work experience.',

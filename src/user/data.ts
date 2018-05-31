@@ -1,9 +1,5 @@
-import { firestore, initializeApp } from 'firebase-admin'
-import { config } from 'firebase-functions'
+import { dataBase } from '../database'
 
-initializeApp(config().firebase)
-
-const dataBase = firestore()
 const collection = dataBase.collection('users')
 
 export async function getUsers() {
