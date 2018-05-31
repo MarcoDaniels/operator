@@ -5,7 +5,7 @@ import { dataBase } from '../database'
 
 const collection = dataBase.collection('userEducation')
 
-export async function getEducations(user: UserType) {
+async function getEducations(user: UserType) {
     const educations: any[] = []
 
     const query = collection.where('userName', '==', user.userName)

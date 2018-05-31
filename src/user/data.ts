@@ -32,6 +32,7 @@ export async function getUser(userName: string) {
 export async function getCollaborators(userNames: string[]) {
     const collaborators: any[] = []
 
+    // TODO: figure this out!
     const query = collection.where('userName', '==', userNames[0])
     await query.get()
         .then((snapshot) => {

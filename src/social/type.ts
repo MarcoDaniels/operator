@@ -1,13 +1,5 @@
 import { GraphQLObjectType, GraphQLString } from 'graphql'
 
-export type SocialMediaType = {
-    userName: string
-    identifier: string
-    name: string
-    url: string
-    displayName: string
-}
-
 export const SocialMedia: GraphQLObjectType = new GraphQLObjectType({
     name: 'SocialMedia',
     description: 'Social Media accounts.',
