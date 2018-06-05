@@ -4,15 +4,10 @@ import { ListUserProjectQuery } from '../project/query'
 import { ListUserEducationQuery } from '../education/query'
 import { ListUserSocialMediaQuery } from '../social/query'
 import { ListUserSkillsQuery } from '../skills/query'
+import { GetUserImageQuery } from '../images/query'
 
 export type UserType = {
     userName: string
-    name: string
-    email: string
-    title: string
-    welcomeMessage: string[]
-    description: string[]
-    interests: string[]
 }
 
 export const User: GraphQLObjectType = new GraphQLObjectType({
@@ -34,6 +29,9 @@ export const User: GraphQLObjectType = new GraphQLObjectType({
         title: {
             type: GraphQLString,
             description: 'The user title.'
+        },
+        image: {
+            ...GetUserImageQuery
         },
         welcomeMessage: {
             type: new GraphQLList(GraphQLString),
