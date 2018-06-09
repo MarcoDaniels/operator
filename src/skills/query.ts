@@ -1,28 +1,28 @@
 import { Skills } from './type'
-import { GraphQLList, GraphQLObjectType } from 'graphql'
-import { getSkills } from './data'
+import { GraphQLList } from 'graphql'
+import { dataBase } from '../database'
 import { UserType } from '../user/type'
 
-const ListSkillsQuery: any = {
-    type: new GraphQLList(Skills),
-    description: Skills.description,
-    resolve: () => {
-        return getSkills()
-    }
+const collection = dataBase.collection('userSkills')
+
+export async function getUserSkills(user: UserType) {
+    const skills: any[] = []
+
+    const userQuery = collection.where('userName', '==', user.userName).orderBy('level')
+    await userQuery.get()
+        .then((snapshot) => {
+            snapshot.forEach((doc) => {
+                skills.push(doc.data())
+            })
+        })
+
+    return skills
 }
 
 export const ListUserSkillsQuery: any = {
     type: new GraphQLList(Skills),
     description: Skills.description,
     resolve: (source: UserType) => {
-        return getSkills()
+        return getUserSkills(source)
     }
 }
-
-export const SkillsQuery = new GraphQLObjectType({
-    name: 'SkillsQuery',
-    description: 'The skills query',
-    fields: () => ({
-        list: ListSkillsQuery
-    })
-})

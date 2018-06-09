@@ -2,7 +2,6 @@ import { GraphQLObjectType, GraphQLSchema } from 'graphql'
 import { UserQuery } from './user/query'
 import { ProjectQuery } from './project/query'
 import { HelpQuery } from './help/query'
-import { SkillsQuery } from './skills/query'
 
 const Query = new GraphQLObjectType({
     name: 'Query',
@@ -21,11 +20,6 @@ const Query = new GraphQLObjectType({
         project: {
             type: ProjectQuery,
             description: ProjectQuery.description,
-            resolve: () => { return {} }
-        },
-        skills: {
-            type: SkillsQuery,
-            description: SkillsQuery.description,
             resolve: () => { return {} }
         }
     })

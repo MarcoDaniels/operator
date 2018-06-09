@@ -1,14 +1,12 @@
 # operator
 
-_connects all agents and exposes a GraphQL API_
+> _GraphQL API for all projects under __web-verse___
 
-## Agents
-* [projects](https://github.com/MarcoDaniels/agent-project)
-* [experience](https://github.com/MarcoDaniels/agent-experience)
 
-## Integration with
+## web-verse projects integration
 - [i-am-root](https://github.com/MarcoDaniels/i-am-root)
   - hosted at: [mylittlevirtualfriend.com](https://mylittlevirtualfriend.com)
+- [cv](https://github.com/MarcoDaniels/cv)
+  - hosted at: [cv.marcodaniels.com](https://cv.marcodaniels.com)
   
-## GraphiQL
-exposes _GraphiQL_ interface: [GraphiQL](https://us-central1-web-verse-services.cloudfunctions.net/operator/graphiql)
+exposes a [GraphiQL](https://us-central1-web-verse-services.cloudfunctions.net/operator/graphiql)
