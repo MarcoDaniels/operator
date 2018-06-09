@@ -1,19 +1,13 @@
 import { Skills } from './type'
-import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
+import { GraphQLList, GraphQLObjectType } from 'graphql'
 import { getSkills } from './data'
 import { UserType } from '../user/type'
 
 const ListSkillsQuery: any = {
     type: new GraphQLList(Skills),
     description: Skills.description,
-    args: {
-        search: {
-            type: GraphQLString,
-            description: 'Searching for..'
-        }
-    },
-    resolve: (source: any, args: any) => {
-        return getSkills(args.search)
+    resolve: () => {
+        return getSkills()
     }
 }
 
