@@ -61,8 +61,10 @@ typings/
 .idea/
 
 # build/dist folders
+build/
 dist/
 etc/
 
 # firebase
 .runtimeconfig.json
+.firebaserc

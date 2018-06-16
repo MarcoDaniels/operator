@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "rewrites": [
+      {
+        "source": "/operator/graphql",
+        "function": "operator/graphql"
+      },
+      {
+        "source": "/operator/graphiql",
+        "function": "operator/graphiql"
+      }
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

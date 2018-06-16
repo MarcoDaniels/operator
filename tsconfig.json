@@ -1,11 +1,30 @@
 {
-  "extends": "../../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "dist",
-    "experimentalDecorators": true,
+    "outDir": "build",
     "module": "commonjs",
+    "target": "es6",
     "lib": ["es6", "esnext"],
-    "target": "es6"
-  }
+    "sourceMap": true,
+    "allowJs": false,
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "declaration": true,
+    "allowUnreachableCode": false,
+    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictFunctionTypes": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }
