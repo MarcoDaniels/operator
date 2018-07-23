@@ -1,38 +1,31 @@
 import { HelpType } from './type'
+import { dataBase } from '../database'
 
-const helpData: HelpType[] = [
-    {
-        type: 'about',
-        description: 'Contains all about the users',
-        usage: 'about [<args>] [<u_name>]',
-        content: [
-            'about [--help] [-h] Displays help options',
-            'about [--list] [-ls] Lists all users',
-            'about [--info] [-i] <u_name> Displays detailed information about the user',
-            'about [--work] [-w] <u_name> Displays work experiences about the user',
-        ]
-    },
-    {
-        type: 'project',
-        description: 'Contains all the projects',
-        usage: 'project [<args>] [<project name>]',
-        content: [
-            'project [--help] [-h] Displays help options',
-            'project [--list] [-ls] Lists all projects',
-            'project [--info] [-i] <project name> Displays detailed information about the project',
-            'project [--open] [-o] <project name> Opens project in a new tab',
-        ]
-    }
-]
+const collection = dataBase.collection('help')
 
-export function listHelp() {
-    return helpData
+export async function getHelp(args: HelpType) {
+    let help: any = {}
+
+    const query = collection.where('type', '==', args.type)
+    await query.get()
+        .then((snapshot) => {
+            snapshot.forEach((doc) => {
+                help = doc.data()
+            })
+        })
+
+    return help
 }
 
-export function getHelp(args: HelpType): HelpType {
-    const [help] = helpData.filter((help) => {
-        return help.type === args.type
-    })
+export async function listHelp() {
+    let help: any[] = []
+
+    await collection.orderBy('weight').get()
+        .then((snapshot) => {
+            snapshot.forEach((doc) => {
+                help.push(doc.data())
+            })
+        })
 
     return help
 }

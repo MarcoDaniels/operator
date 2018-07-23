@@ -1,12 +1,11 @@
 # operator
 
-> _GraphQL API for all projects under __web-verse___
+> _GraphQL Server for several front-end consumer applications_
 
-
-## web-verse projects integration
+## Front-end consumers:
 - [i-am-root](https://github.com/MarcoDaniels/i-am-root)
   - hosted at: [mylittlevirtualfriend.com](https://mylittlevirtualfriend.com)
 - [cv](https://github.com/MarcoDaniels/cv)
   - hosted at: [cv.marcodaniels.com](https://cv.marcodaniels.com)
   
-exposes a [GraphiQL](https://us-central1-web-verse-services.cloudfunctions.net/operator/graphiql)
+exposed [GraphiQL](https://us-central1-web-verse-services.cloudfunctions.net/operator/graphiql)
