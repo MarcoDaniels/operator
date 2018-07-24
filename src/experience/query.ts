@@ -9,7 +9,7 @@ async function getExperiences(user: UserType) {
     const experiences: any[] = []
 
     const query = collection.where('userName', '==', user.userName)
-    await query.get()
+    await query.orderBy('weight').get()
         .then((snapshot) => {
             snapshot.forEach((doc) => {
                 experiences.push(doc.data())

@@ -9,7 +9,7 @@ export type HelpType = {
 
 export const Help: GraphQLObjectType = new GraphQLObjectType({
     name: 'Help',
-    description: 'Help feature',
+    description: 'Help feature for CLI',
     fields: () => ({
         type: {
             type: GraphQLString,

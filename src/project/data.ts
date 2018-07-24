@@ -24,14 +24,14 @@ export async function getProjects(user?: UserType) {
     if (user) {
         const collaborator: string = 'collaborators.' + user.userName
         const query = collection.where(collaborator, '==', true)
-        await query.get()
+        await query.orderBy('weight').get()
             .then((snapshot) => {
                 snapshot.forEach((doc) => {
                     projects.push(doc.data())
                 })
             })
     } else {
-        await collection.get()
+        await collection.orderBy('weight').get()
             .then((snapshot) => {
                 snapshot.forEach((doc) => {
                     projects.push(doc.data())

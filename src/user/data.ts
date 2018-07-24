@@ -5,7 +5,7 @@ const collection = dataBase.collection('users')
 export async function getUsers() {
     const users: any[] = []
 
-    await collection.get()
+    await collection.orderBy('weight').get()
         .then((snapshot) => {
             snapshot.forEach((doc) => {
                 users.push(doc.data())
@@ -29,17 +29,15 @@ export async function getUser(userName: string) {
     return user
 }
 
-export async function getCollaborators(userNames: string[]) {
+export async function getCollaborators(users: object) {
     const collaborators: any[] = []
 
-    // TODO: figure this out!
-    const query = collection.where('userName', '==', userNames[0])
-    await query.get()
-        .then((snapshot) => {
-            snapshot.forEach((doc) => {
-                collaborators.push(doc.data())
-            })
-        })
+    // Too many requests?!
+    for (let userName in users) {
+        if (users.hasOwnProperty(userName)) {
+            collaborators.push(await getUser(userName))
+        }
+    }
 
     return collaborators
 }
