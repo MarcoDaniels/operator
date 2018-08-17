@@ -1,14 +1,23 @@
 import { dataBase } from '../database'
+import { CollectionArgumentsType, CollectionOutputType } from '../collection'
 
 const collection = dataBase.collection('users')
 
-export async function getUsers() {
-    const users: any[] = []
+export async function getUsers(args: CollectionArgumentsType) {
+    const users: CollectionOutputType = {
+        metadata: {
+            page: args.page,
+            perPage: args.perPage,
+            total: 0
+        },
+        data: []
+    }
 
-    await collection.orderBy('weight').get()
-        .then((snapshot) => {
+    await collection.orderBy('weight')
+        .limit(args.perPage)
+        .get().then((snapshot) => {
             snapshot.forEach((doc) => {
-                users.push(doc.data())
+                users.data.push(doc.data())
             })
         })
 

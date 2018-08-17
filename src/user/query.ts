@@ -2,6 +2,7 @@ import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'g
 import { User, UserType } from './type'
 import { getCollaborators, getUser, getUsers } from './data'
 import { ProjectType } from '../project/type'
+import { Collection, CollectionArguments } from '../collection'
 
 const GetUserQuery: any = {
     type: User,
@@ -18,10 +19,16 @@ const GetUserQuery: any = {
 }
 
 const ListUserQuery = {
-    type: new GraphQLList(User),
-    description: User.description,
-    resolve: () => {
-        return getUsers()
+    type: Collection(User),
+    description: Collection(User).description,
+    args: {
+        filter: {
+            type: CollectionArguments,
+            description: CollectionArguments.description
+        }
+    },
+    resolve: (source: any, args: any) => {
+        return getUsers(args.filter)
     }
 }
 
