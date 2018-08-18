@@ -1,4 +1,4 @@
-import { GraphQLInputObjectType, GraphQLInt, GraphQLList, GraphQLObjectType } from 'graphql'
+import { GraphQLInputObjectType, GraphQLInt, GraphQLList, GraphQLNonNull, GraphQLObjectType } from 'graphql'
 
 export type CollectionArgumentsType = {
     page: number
@@ -14,17 +14,16 @@ export type CollectionOutputType = {
     data: any[]
 }
 
-// TODO: default type?!
 export const CollectionArguments = new GraphQLInputObjectType({
     name: 'CollectionArguments',
     description: 'Filter list of objects.',
     fields: () => ({
         page: {
-            type: GraphQLInt,
+            type: new GraphQLNonNull(GraphQLInt),
             description: 'The page number.'
         },
         perPage: {
-            type: GraphQLInt,
+            type: new GraphQLNonNull(GraphQLInt),
             description: 'The elements per page.'
         }
     })

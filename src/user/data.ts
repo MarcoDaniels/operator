@@ -13,9 +13,12 @@ export async function getUsers(args: CollectionArgumentsType) {
         data: []
     }
 
+    const offset = (args.page - 1) * args.perPage
     await collection.orderBy('weight')
         .limit(args.perPage)
+        .offset(offset)
         .get().then((snapshot) => {
+            users.metadata.total = snapshot.size
             snapshot.forEach((doc) => {
                 users.data.push(doc.data())
             })

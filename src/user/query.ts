@@ -5,7 +5,7 @@ import { ProjectType } from '../project/type'
 import { Collection, CollectionArguments } from '../collection'
 
 const GetUserQuery: any = {
-    type: User,
+    type: new GraphQLNonNull(User),
     description: User.description,
     args: {
         userName: {
@@ -19,12 +19,13 @@ const GetUserQuery: any = {
 }
 
 const ListUserQuery = {
-    type: Collection(User),
+    type: new GraphQLNonNull(Collection(User)),
     description: Collection(User).description,
     args: {
         filter: {
             type: CollectionArguments,
-            description: CollectionArguments.description
+            description: CollectionArguments.description,
+            defaultValue: { page: 1, perPage: 10 }
         }
     },
     resolve: (source: any, args: any) => {
