@@ -23,7 +23,7 @@ deploy:
   - provider: firebase
     token:
       secure: $FIREBASE_TOKEN
-    project: $FIREBASE_PROJECT_ID
+    project: $PROJECT_ID
     skip_cleanup: true
     on:
       branch: master
