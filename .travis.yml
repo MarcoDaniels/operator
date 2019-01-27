@@ -1,13 +1,29 @@
 language: node_js
 node_js:
-  - "9.4"
+  - "10.7"
+
 notifications:
   email: false
-script:
-  - echo "Deploying!"
+
+# push to branches only trigger on master (merge pr)
+branches:
+  only:
+    - master
+
+# install & test
 install:
   - yarn
+
+# build for deployment
+before_deploy:
   - yarn build
-  - npm install -g firebase-tools
-after_success:
-  - firebase deploy --only functions --project $PROJECT_ID --token $FIREBASE_TOKEN
+
+# deploy to firebase
+deploy:
+  - provider: firebase
+    token:
+      secure: $FIREBASE_TOKEN
+    project: $FIREBASE_PROJECT_ID
+    skip_cleanup: true
+    on:
+      branch: master
