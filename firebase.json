@@ -1,7 +1,4 @@
 {
-  "functions": {
-    "source": ""
-  },
   "hosting": {
     "rewrites": [
       {
