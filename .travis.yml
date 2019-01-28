@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - "10.7"
+  - "6"
 
 notifications:
   email: false
@@ -20,10 +21,10 @@ before_deploy:
 
 # deploy to firebase
 deploy:
-  - provider: firebase
-    token:
-      secure: $FIREBASE_TOKEN
-    project: $PROJECT_ID
-    skip_cleanup: true
-    on:
-      branch: master
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
+  project: $PROJECT_ID
+  skip_cleanup: true
+  on:
+    branch: master
