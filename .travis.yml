@@ -20,10 +20,10 @@ before_deploy:
 
 # deploy to firebase
 deploy:
-  - provider: firebase
-    token:
-      secure: $FIREBASE_TOKEN
-    project: $PROJECT_ID
-    skip_cleanup: true
-    on:
-      branch: master
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
+  project: $PROJECT_ID
+  skip_cleanup: true
+  on:
+    branch: master
