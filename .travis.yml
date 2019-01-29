@@ -13,9 +13,11 @@ branches:
 # install & test
 install:
   - yarn
-  - test $TRAVIS_BRANCH = "master" && yarn build
-  - test $TRAVIS_BRANCH = "master" && npm install -g firebase-tools
 
 # deploy to firebase
-after_success:
-  - test $TRAVIS_BRANCH = "master" && firebase deploy --only functions --project $PROJECT_ID --token $FIREBASE_TOKEN
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh $PROJECT_ID $FIREBASE_TOKEN
+  skip_cleanup: true
+  on:
+    branch: master
