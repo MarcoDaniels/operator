@@ -14,16 +14,10 @@ branches:
 install:
   - yarn
 
-# build for deployment
-before_deploy:
-  - yarn build
-
 # deploy to firebase
 deploy:
-  provider: firebase
-  token:
-    secure: $FIREBASE_TOKEN
-  project: $PROJECT_ID
+  provider: script
+  script: bash scripts/deploy.sh $PROJECT_ID $FIREBASE_TOKEN
   skip_cleanup: true
   on:
     branch: master
