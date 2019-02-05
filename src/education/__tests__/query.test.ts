@@ -1,11 +1,7 @@
 import { ListUserEducationQuery } from '../query'
 import { GraphQLList } from 'graphql'
 import { Education } from '../type'
-
-const educationMock = {
-    institution: 'MIT',
-    degree: 'Computer Science'
-}
+import { educationMock } from '../__mocks__/education.mock'
 
 jest.mock('../data', () => {
     return {
@@ -25,8 +21,7 @@ describe('Education Query', () => {
         expect(data.description).toBe(Education.description)
 
         data.resolve({userName: 'user'}).then((education: any) => {
-            expect(education.institution).toBe('MIT')
-            expect(education.degree).toBe('Computer Science')
+            expect(education).toBe(educationMock)
         })
     })
 })

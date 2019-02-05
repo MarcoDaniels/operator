@@ -24,7 +24,10 @@
     "experimentalDecorators": true
   },
   "exclude": [
+    "src/**/__tests__/",
+    "src/**/__mocks__/",
     "node_modules",
+    "coverage",
     "build"
   ]
 }
