@@ -1,12 +1,17 @@
 import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
-import { GetUser } from '../user/query'
+import { User, UserType } from '../user/type'
+import { getUser } from '../user/data'
 
 export const Experience: GraphQLObjectType = new GraphQLObjectType({
     name: 'Experience',
     description: 'Work experience.',
     fields: () => ({
         user: {
-            ...GetUser
+            type: User,
+            description: User.description,
+            resolve: (source: UserType) => {
+                return getUser(source.userName)
+            }
         },
         position: {
             type: GraphQLString,

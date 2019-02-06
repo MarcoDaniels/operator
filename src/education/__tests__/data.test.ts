@@ -1,15 +1,6 @@
 import { getEducation } from '../data'
 import { educationMock } from '../__mocks__/education.mock'
-
-const dataBaseGet = (mockObject: any) => {
-    return new Promise(resolve => {
-        resolve([{
-            data: jest.fn(() => {
-                return mockObject
-            })
-        }])
-    })
-}
+import { dataBaseGet } from '../../__mocks__/database.mocks'
 
 jest.mock('../../database', () => {
     return {

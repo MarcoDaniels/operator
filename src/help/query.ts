@@ -2,7 +2,7 @@ import { Help, HelpType } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getHelp, listHelp } from './data'
 
-const GetHelpQuery = {
+export const GetHelpQuery = {
     type: Help,
     description: Help.description,
     args: {
@@ -16,7 +16,8 @@ const GetHelpQuery = {
         return getHelp(helpType)
     }
 }
-const ListHelpQuery = {
+
+export const ListHelpQuery = {
     type: new GraphQLList(Help),
     description: Help.description,
     resolve: () => {
