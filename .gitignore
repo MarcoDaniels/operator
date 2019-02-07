@@ -63,6 +63,7 @@ typings/
 # build/dist folders
 build/
 dist/
+lib/
 etc/
 
 # firebase

@@ -1,7 +1,7 @@
 import { ListUserEducationQuery } from '../query'
 import { GraphQLList } from 'graphql'
 import { Education } from '../type'
-import { educationMock } from '../__mocks__/education.mock'
+import { educationMock } from '../../__mocks__/education.mock'
 
 jest.mock('../data', () => {
     return {

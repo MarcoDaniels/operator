@@ -1,7 +1,7 @@
 import { GetHelpQuery, HelpQuery, ListHelpQuery } from '../query'
 import { Help } from '../type'
 import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql'
-import { helpMock } from '../__mocks__/help.mocks'
+import { helpMock } from '../../__mocks__/help.mocks'
 
 jest.mock('../data', () => {
     return {
