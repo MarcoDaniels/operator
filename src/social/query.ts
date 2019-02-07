@@ -1,23 +1,7 @@
 import { GraphQLList } from 'graphql'
 import { SocialMedia } from './type'
 import { UserType } from '../user/type'
-import { dataBase } from '../database'
-
-const collection = dataBase.collection('userSocialMedia')
-
-async function getSocialMedias(user: UserType) {
-    const socialMedias: any[] = []
-
-    const query = collection.where('userName', '==', user.userName)
-    await query.orderBy('weight').get()
-        .then((snapshot) => {
-            snapshot.forEach((doc) => {
-                socialMedias.push(doc.data())
-            })
-        })
-
-    return socialMedias
-}
+import { getSocialMedias } from './data'
 
 export const ListUserSocialMediaQuery: any = {
     type: new GraphQLList(SocialMedia),

@@ -15,7 +15,12 @@ export function dbCollectionMock(objectMock: any) {
                 return {
                     where: jest.fn(() => {
                         return {
-                            get: jest.fn(() => dbGetMock(objectMock))
+                            get: jest.fn(() => dbGetMock(objectMock)),
+                            orderBy: jest.fn(() => {
+                                return {
+                                    get: jest.fn(() => dbGetMock(objectMock))
+                                }
+                            })
                         }
                     }),
                     orderBy: jest.fn(() => {
