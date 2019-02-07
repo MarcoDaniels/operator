@@ -1,27 +1,8 @@
-import { getHelp, listHelp } from '../data'
-import { dataBaseGet } from '../../__mocks__/database.mocks'
+import { dbCollectionMock } from '../../__mocks__/database.mocks'
 import { helpMock } from '../__mocks__/help.mocks'
+import { getHelp, listHelp } from '../data'
 
-jest.mock('../../database', () => {
-    return {
-        dataBase: {
-            collection: jest.fn(() => {
-                return {
-                    where: jest.fn(() => {
-                        return {
-                            get: jest.fn(() => dataBaseGet(helpMock))
-                        }
-                    }),
-                    orderBy: jest.fn(() => {
-                        return {
-                            get: jest.fn(() => dataBaseGet(helpMock))
-                        }
-                    })
-                }
-            })
-        }
-    }
-})
+jest.mock('../../database', () => dbCollectionMock(helpMock))
 
 describe('Help data', () => {
     it('should mock and resolve getHelp collection', () => {

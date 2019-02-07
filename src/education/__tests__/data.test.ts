@@ -1,22 +1,8 @@
-import { getEducation } from '../data'
+import { dbCollectionMock } from '../../__mocks__/database.mocks'
 import { educationMock } from '../__mocks__/education.mock'
-import { dataBaseGet } from '../../__mocks__/database.mocks'
+import { getEducation } from '../data'
 
-jest.mock('../../database', () => {
-    return {
-        dataBase: {
-            collection: jest.fn(() => {
-                return {
-                    where: jest.fn(() => {
-                        return {
-                            get: jest.fn(() => dataBaseGet(educationMock))
-                        }
-                    })
-                }
-            })
-        }
-    }
-})
+jest.mock('../../database', () => dbCollectionMock(educationMock))
 
 describe('Education data', () => {
     it('should mock and resolve getEducation collection', async () => {
