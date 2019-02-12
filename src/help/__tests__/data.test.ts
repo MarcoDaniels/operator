@@ -4,7 +4,7 @@ import { getHelp, listHelp } from '../data'
 
 jest.mock('../../database', () => dbCollectionMock(helpMock))
 
-describe('Help data', () => {
+describe('help data', () => {
     it('should mock and resolve getHelp collection', () => {
         const helpResult = getHelp({type: 'help'})
 

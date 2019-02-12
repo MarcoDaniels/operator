@@ -18,7 +18,7 @@ jest.mock('../data', () => {
     }
 })
 
-describe('Help Query', () => {
+describe('help query', () => {
     it('should match GraphQL object for GetHelpQuery', () => {
         const helpQuery = GetHelpQuery
 

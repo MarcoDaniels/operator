@@ -4,7 +4,7 @@ import { getSocialMedias } from '../data'
 
 jest.mock('../../database', () => dbCollectionMock(socialMediaMock))
 
-describe('Social Data', () => {
+describe('social data', () => {
     it('should mock and resolve getSocialMedias collection', () => {
         const socialMediaResult = getSocialMedias({userName: 'that-user'})
 

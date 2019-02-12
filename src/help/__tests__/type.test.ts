@@ -1,7 +1,7 @@
 import { Help } from '../type'
 import { GraphQLList, GraphQLString } from 'graphql'
 
-describe('Help type', () => {
+describe('help type', () => {
     it('should check for all help fields type', () => {
         const fields = Help.getFields()
 

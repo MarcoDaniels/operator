@@ -1,4 +1,4 @@
-import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { User, UserType } from '../user/type'
 import { getUser } from '../user/data'
 
@@ -14,7 +14,7 @@ export const Experience: GraphQLObjectType = new GraphQLObjectType({
             }
         },
         position: {
-            type: GraphQLString,
+            type: new GraphQLNonNull(GraphQLString),
             description: 'The position name.'
         },
         workplace: {

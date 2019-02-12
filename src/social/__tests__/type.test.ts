@@ -1,7 +1,7 @@
 import { SocialMedia } from '../type'
 import { GraphQLNonNull, GraphQLString } from 'graphql'
 
-describe('Social media type', () => {
+describe('social type', () => {
     it('should check for all social media fields type', () => {
         const fields = SocialMedia.getFields()
 

@@ -4,7 +4,7 @@ import { getEducation } from '../data'
 
 jest.mock('../../database', () => dbCollectionMock(educationMock))
 
-describe('Education data', () => {
+describe('education data', () => {
     it('should mock and resolve getEducation collection', async () => {
         const educationResult = getEducation({userName: 'this-user'})
 

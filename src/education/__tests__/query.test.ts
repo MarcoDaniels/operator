@@ -13,7 +13,7 @@ jest.mock('../data', () => {
     }
 })
 
-describe('Education Query', () => {
+describe('education query', () => {
     it('should match GraphQL object for ListUserEducationQuery', () => {
         const data = ListUserEducationQuery
 
