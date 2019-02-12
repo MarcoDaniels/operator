@@ -1,5 +1,15 @@
 import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
 
+export interface EducationType {
+    institution: string
+    degree: string
+    field: string
+    from: string
+    to: string
+    location: string
+    details?: string
+}
+
 export const Education: GraphQLObjectType = new GraphQLObjectType({
     name: 'Education',
     description: 'Study degrees and courses.',

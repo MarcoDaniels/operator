@@ -1,17 +1,22 @@
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
-import { User, UserType } from '../user/type'
-import { getUser } from '../user/data'
+import { GetUser } from '../user/query'
+
+export interface IExperience {
+    user: object
+    position: string
+    workplace: string
+    from: string
+    to: string
+    location: string
+    details?: [string]
+}
 
 export const Experience: GraphQLObjectType = new GraphQLObjectType({
     name: 'Experience',
     description: 'Work experience.',
     fields: () => ({
         user: {
-            type: User,
-            description: User.description,
-            resolve: (source: UserType) => {
-                return getUser(source.userName)
-            }
+            ...GetUser
         },
         position: {
             type: new GraphQLNonNull(GraphQLString),

@@ -3,6 +3,7 @@ import { User, UserType } from './type'
 import { getCollaborators, getUser, getUsers } from './data'
 import { ProjectType } from '../project/type'
 import { Collection, CollectionArguments } from '../collection'
+import { GraphQLFieldQueryType } from '../utils'
 
 const GetUserQuery: any = {
     type: new GraphQLNonNull(User),
@@ -33,7 +34,7 @@ const ListUserQuery = {
     }
 }
 
-export const GetUser = {
+export const GetUser: GraphQLFieldQueryType<UserType, {}, {}> = {
     type: User,
     description: User.description,
     resolve: (source: UserType) => {

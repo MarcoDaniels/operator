@@ -1,25 +1,10 @@
 import { Experience } from './type'
 import { GraphQLList } from 'graphql'
 import { UserType } from '../user/type'
-import { dataBase } from '../database'
+import { getExperiences } from './data'
+import { GraphQLFieldQueryType } from '../utils'
 
-const collection = dataBase.collection('userExperience')
-
-async function getExperiences(user: UserType) {
-    const experiences: any[] = []
-
-    const query = collection.where('userName', '==', user.userName)
-    await query.orderBy('weight').get()
-        .then((snapshot) => {
-            snapshot.forEach((doc) => {
-                experiences.push(doc.data())
-            })
-        })
-
-    return experiences
-}
-
-export const ListUserExperienceQuery: any = {
+export const ListUserExperienceQuery: GraphQLFieldQueryType<UserType, {}, {}> = {
     type: new GraphQLList(Experience),
     description: Experience.description,
     resolve: (source: UserType) => {

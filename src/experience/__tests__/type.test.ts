@@ -1,20 +1,13 @@
 import { Experience } from '../type'
 import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql'
 import { User } from '../../user/type'
-import { userMock } from '../../__mocks__/user.mock'
 
 jest.mock('../../user/type', () => {
     return { User: {} }
 })
 
-jest.mock('../../user/data', () => {
-    return {
-        getUser: jest.fn(() => {
-            return new Promise(resolve => {
-                resolve(userMock)
-            })
-        })
-    }
+jest.mock('../../user/query', () => {
+    return { GetUser: { type: {} } }
 })
 
 describe('experience type', () => {
