@@ -6,7 +6,7 @@ jest.mock('../../user/type', () => {
 })
 
 jest.mock('../../user/query', () => {
-    return {ProjectCollaboratorsQuery: {type: {test: true}}}
+    return {ProjectCollaboratorsQuery: {type: {}}}
 })
 
 describe('project type', () => {

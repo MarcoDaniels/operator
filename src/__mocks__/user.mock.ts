@@ -1,5 +1,5 @@
-import { UserType } from '../user/type'
+import { IUser } from '../user/type'
 
-export const userMock: UserType = {
+export const userMock: IUser = {
     userName: 'this-user'
 }

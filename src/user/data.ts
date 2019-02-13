@@ -3,7 +3,21 @@ import { CollectionArgumentsType, CollectionOutputType } from '../collection'
 
 const collection = dataBase.collection('users')
 
-export async function getUsers(args: CollectionArgumentsType) {
+export async function getUser(userName: string) {
+    let user: any = {}
+
+    const query = collection.where('userName', '==', userName)
+    await query.get()
+        .then((snapshot) => {
+            snapshot.forEach((doc) => {
+                user = doc.data()
+            })
+        })
+
+    return user
+}
+
+export async function listUsers(args: CollectionArgumentsType) {
     const users: CollectionOutputType = {
         metadata: {
             page: args.page,
@@ -27,21 +41,7 @@ export async function getUsers(args: CollectionArgumentsType) {
     return users
 }
 
-export async function getUser(userName: string) {
-    let user: any = {}
-
-    const query = collection.where('userName', '==', userName)
-    await query.get()
-        .then((snapshot) => {
-            snapshot.forEach((doc) => {
-                user = doc.data()
-            })
-        })
-
-    return user
-}
-
-export async function getCollaborators(users: object) {
+export async function getCollaborators(users: string[]) {
     const collaborators: any[] = []
 
     // Too many requests?!

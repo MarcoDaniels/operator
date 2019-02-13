@@ -1,11 +1,11 @@
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
-import { User, UserType } from './type'
-import { getCollaborators, getUser, getUsers } from './data'
+import { User, IUser } from './type'
+import { getCollaborators, getUser, listUsers } from './data'
 import { IProject } from '../project/type'
 import { Collection, CollectionArguments } from '../collection'
 import { GraphQLFieldQueryType } from '../utils'
 
-const GetUserQuery: any = {
+export const GetUserQuery: GraphQLFieldQueryType<any, any, any> = {
     type: new GraphQLNonNull(User),
     description: User.description,
     args: {
@@ -19,7 +19,7 @@ const GetUserQuery: any = {
     }
 }
 
-const ListUserQuery = {
+export const ListUserQuery: GraphQLFieldQueryType<any, any, any> = {
     type: new GraphQLNonNull(Collection(User)),
     description: Collection(User).description,
     args: {
@@ -30,14 +30,23 @@ const ListUserQuery = {
         }
     },
     resolve: (source: any, args: any) => {
-        return getUsers(args.filter)
+        return listUsers(args.filter)
     }
 }
 
-export const GetUser: GraphQLFieldQueryType<UserType, {}, {}> = {
+export const UserQuery = new GraphQLObjectType({
+   name: 'UserQuery',
+   description: 'The user query',
+   fields: () => ({
+       get: GetUserQuery,
+       list: ListUserQuery
+   })
+})
+
+export const GetUser: GraphQLFieldQueryType<IUser, {}, {}> = {
     type: User,
     description: User.description,
-    resolve: (source: UserType) => {
+    resolve: (source: IUser) => {
         return getUser(source.userName)
     }
 }
@@ -49,12 +58,3 @@ export const ProjectCollaboratorsQuery: GraphQLFieldQueryType<IProject, {}, {}> 
         return getCollaborators(source.collaborators)
     }
 }
-
-export const UserQuery = new GraphQLObjectType({
-    name: 'UserQuery',
-    description: 'The user query',
-    fields: () => ({
-        get: GetUserQuery,
-        list: ListUserQuery
-    })
-})
