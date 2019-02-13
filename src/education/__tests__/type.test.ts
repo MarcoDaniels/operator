@@ -1,7 +1,7 @@
 import { Education } from '../type'
 import { GraphQLList, GraphQLString } from 'graphql'
 
-describe('Education type', () => {
+describe('education type', () => {
     it('should check for all education fields type', () => {
         const fields = Education.getFields()
 

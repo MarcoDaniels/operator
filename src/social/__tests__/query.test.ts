@@ -13,7 +13,7 @@ jest.mock('../data', () => {
     }
 })
 
-describe('Social Query', () => {
+describe('social query', () => {
     it('should match GraphQL object for ', () => {
         const data = ListUserSocialMediaQuery
 

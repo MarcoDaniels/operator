@@ -1,7 +1,7 @@
 import { Skills } from '../type'
 import { GraphQLNonNull, GraphQLString } from 'graphql'
 
-describe('Skills type', () => {
+describe('skills type', () => {
     it('should check for all skills fields type', () => {
         const fields = Skills.getFields()
 

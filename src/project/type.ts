@@ -1,7 +1,7 @@
 import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
 import { ProjectCollaboratorsQuery } from '../user/query'
 
-export type ProjectType = {
+export interface IProject {
     name: string
     homepage: string
     releaseDate: string

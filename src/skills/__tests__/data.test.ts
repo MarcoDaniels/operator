@@ -4,7 +4,7 @@ import { listUserSkills } from '../data'
 
 jest.mock('../../database', () => dbCollectionMock(skillsMock))
 
-describe('Skills data', () => {
+describe('skills data', () => {
     it('should mock and resolve listUserSkills collection', () => {
         const skillsResult = listUserSkills({userName: 'user'})
 

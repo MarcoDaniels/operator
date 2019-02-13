@@ -1,6 +1,6 @@
 import { ListUserEducationQuery } from '../query'
 import { GraphQLList } from 'graphql'
-import { Education } from '../type'
+import { Education, EducationType } from '../type'
 import { educationMock } from '../../__mocks__/education.mock'
 
 jest.mock('../data', () => {
@@ -13,14 +13,15 @@ jest.mock('../data', () => {
     }
 })
 
-describe('Education Query', () => {
+describe('education query', () => {
     it('should match GraphQL object for ListUserEducationQuery', () => {
         const data = ListUserEducationQuery
 
         expect(data.type).toMatchObject(new GraphQLList(Education))
         expect(data.description).toBe(Education.description)
 
-        data.resolve({userName: 'user'}).then((education: any) => {
+        // @ts-ignore because of GraphQLResolveInfo
+        data.resolve({userName: 'this-user'}).then((education: EducationType) => {
             expect(education).toBe(educationMock)
         })
     })
