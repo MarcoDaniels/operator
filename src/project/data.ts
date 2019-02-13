@@ -1,10 +1,10 @@
-import { ProjectType } from './type'
+import { IProject } from './type'
 import { UserType } from '../user/type'
 import { dataBase } from '../database'
 
 const collection = dataBase.collection('projects')
 
-export async function getProject(args: ProjectType) {
+export async function getProject(args: IProject) {
     let project: any = {}
 
     const query = collection.where('name', '==', args.name)
