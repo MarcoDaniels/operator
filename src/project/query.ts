@@ -1,9 +1,10 @@
 import { Project } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
-import { getProject, getProjects } from './data'
+import { getProject, listProjects } from './data'
 import { UserType } from '../user/type'
+import { GraphQLFieldQueryType } from '../utils'
 
-const GetProjectQuery = {
+export const GetProjectQuery: GraphQLFieldQueryType<any, any, any> = {
     type: Project,
     description: Project.description,
     args: {
@@ -12,24 +13,16 @@ const GetProjectQuery = {
             description: 'The project name'
         }
     },
-    resolve: (source: any, args: any) => {
-        return getProject(args)
+    resolve: (source: {}, args: any) => {
+        return getProject(args.name)
     }
 }
 
-const ListProjectQuery = {
+export const ListProjectQuery: GraphQLFieldQueryType<{}, {}, {}> = {
     type: new GraphQLList(Project),
     description: Project.description,
     resolve: () => {
-        return getProjects()
-    }
-}
-
-export const ListUserProjectQuery = {
-    type: new GraphQLList(Project),
-    description: Project.description,
-    resolve: (source: UserType) => {
-        return getProjects(source)
+        return listProjects()
     }
 }
 
@@ -41,3 +34,11 @@ export const ProjectQuery = new GraphQLObjectType({
         list: ListProjectQuery
     })
 })
+
+export const ListUserProjectQuery: GraphQLFieldQueryType<UserType, {}, {}> = {
+    type: new GraphQLList(Project),
+    description: Project.description,
+    resolve: (source: UserType) => {
+        return listProjects(source)
+    }
+}

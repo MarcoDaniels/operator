@@ -3,10 +3,10 @@ import { ProjectCollaboratorsQuery } from '../user/query'
 
 export interface IProject {
     name: string
-    homepage: string
+    homepage?: string
     releaseDate: string
     description: string
-    details: string[]
+    details?: string[]
     collaborators: string[]
 }
 

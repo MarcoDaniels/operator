@@ -1,13 +1,12 @@
-import { IProject } from './type'
 import { UserType } from '../user/type'
 import { dataBase } from '../database'
 
 const collection = dataBase.collection('projects')
 
-export async function getProject(args: IProject) {
+export async function getProject(name: string) {
     let project: any = {}
 
-    const query = collection.where('name', '==', args.name)
+    const query = collection.where('name', '==', name)
     await query.get()
         .then((snapshot) => {
             snapshot.forEach((doc) => {
@@ -18,7 +17,7 @@ export async function getProject(args: IProject) {
     return project
 }
 
-export async function getProjects(user?: UserType) {
+export async function listProjects(user?: UserType) {
     const projects: any[] = []
 
     if (user) {

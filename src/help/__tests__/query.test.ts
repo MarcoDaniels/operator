@@ -46,7 +46,7 @@ describe('help query', () => {
         })
     })
 
-    it('should match GraphQL fields dor HelpQuery', () => {
+    it('should match GraphQL fields for HelpQuery', () => {
         const queryFields = HelpQuery.getFields()
 
         expect(queryFields.get).toBeDefined()

@@ -41,7 +41,7 @@ export async function getUser(userName: string) {
     return user
 }
 
-export async function getCollaborators(users: object) {
+export async function getCollaborators(users: string[]) {
     const collaborators: any[] = []
 
     // Too many requests?!
