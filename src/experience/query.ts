@@ -1,8 +1,8 @@
-import { Experience } from './type'
+import { GraphQLFieldQueryType } from '../utils'
 import { GraphQLList } from 'graphql'
+import { Experience } from './type'
 import { UserType } from '../user/type'
 import { getExperiences } from './data'
-import { GraphQLFieldQueryType } from '../utils'
 
 export const ListUserExperienceQuery: GraphQLFieldQueryType<UserType, {}, {}> = {
     type: new GraphQLList(Experience),

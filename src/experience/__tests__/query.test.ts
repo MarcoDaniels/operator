@@ -3,6 +3,10 @@ import { GraphQLList } from 'graphql'
 import { Experience, IExperience } from '../type'
 import { experienceMock } from '../../__mocks__/experience.mock'
 
+jest.mock('../../user/query', () => {
+    return { GetUser: { type: {} } }
+})
+
 jest.mock('../data', () => {
     return {
         getExperiences: jest.fn(() => {
