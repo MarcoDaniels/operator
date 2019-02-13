@@ -1,4 +1,4 @@
-import { UserType } from '../user/type'
+import { IUser } from '../user/type'
 import { dataBase } from '../database'
 
 const collection = dataBase.collection('projects')
@@ -17,7 +17,7 @@ export async function getProject(name: string) {
     return project
 }
 
-export async function listProjects(user?: UserType) {
+export async function listProjects(user?: IUser) {
     const projects: any[] = []
 
     if (user) {

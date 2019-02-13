@@ -1,9 +1,9 @@
 import { dataBase } from '../database'
-import { UserType } from '../user/type'
+import { IUser } from '../user/type'
 
 const collection = dataBase.collection('userSkills')
 
-export async function listUserSkills(user: UserType) {
+export async function listUserSkills(user: IUser) {
     const skills: any[] = []
 
     const userQuery = collection.where('userName', '==', user.userName).orderBy('level')

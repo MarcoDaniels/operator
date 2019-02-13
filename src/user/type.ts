@@ -5,7 +5,7 @@ import { ListUserEducationQuery } from '../education/query'
 import { ListUserSocialMediaQuery } from '../social/query'
 import { ListUserSkillsQuery } from '../skills/query'
 
-export type UserType = {
+export interface IUser {
     userName: string
 }
 

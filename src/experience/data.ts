@@ -1,9 +1,9 @@
 import { dataBase } from '../database'
-import { UserType } from '../user/type'
+import { IUser } from '../user/type'
 
 const collection = dataBase.collection('userExperience')
 
-export async function getExperiences(user: UserType) {
+export async function getExperiences(user: IUser) {
     const experiences: any[] = []
 
     const query = collection.where('userName', '==', user.userName)

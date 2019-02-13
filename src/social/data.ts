@@ -1,9 +1,9 @@
 import { dataBase } from '../database'
-import { UserType } from '../user/type'
+import { IUser } from '../user/type'
 
 const collection = dataBase.collection('userSocialMedia')
 
-export async function getSocialMedias(user: UserType) {
+export async function getSocialMedias(user: IUser) {
     const socialMedias: any[] = []
 
     const query = collection.where('userName', '==', user.userName)
