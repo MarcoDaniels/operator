@@ -1,6 +1,6 @@
 import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
 
-export type HelpType = {
+export type IHelp = {
     type: string
     description?: string
     usage?: string

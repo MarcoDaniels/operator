@@ -1,7 +1,7 @@
 import { ListUserSocialMediaQuery } from '../query'
 import { GraphQLList } from 'graphql'
 import { SocialMedia } from '../type'
-import { socialMediaMock } from '../../__mocks__/social.mock'
+import { socialMediaMock } from '../../__mocks__/data.mock'
 
 jest.mock('../data', () => {
     return {

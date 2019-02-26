@@ -1,7 +1,7 @@
 import { ListUserExperienceQuery } from '../query'
 import { GraphQLList } from 'graphql'
 import { Experience, IExperience } from '../type'
-import { experienceMock } from '../../__mocks__/experience.mock'
+import { experienceMock } from '../../__mocks__/data.mock'
 
 jest.mock('../../user/query', () => {
     return { GetUser: { type: {} } }

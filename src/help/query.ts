@@ -1,4 +1,4 @@
-import { Help, HelpType } from './type'
+import { Help, IHelp } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getHelp, listHelp } from './data'
 
@@ -12,7 +12,7 @@ export const GetHelpQuery = {
         }
     },
     resolve: (source: any, args: any) => {
-        const helpType: HelpType = {type: args.type}
+        const helpType: IHelp = {type: args.type}
         return getHelp(helpType)
     }
 }
