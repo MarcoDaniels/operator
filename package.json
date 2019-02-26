@@ -27,7 +27,8 @@
     "collectCoverageFrom": [
       "<rootDir>/src/**",
       "!<rootDir>/src/**/__mocks__/**",
-      "!<rootDir>/src/index.ts"
+      "!<rootDir>/src/index.ts",
+      "!<rootDir>/src/database.ts"
     ]
   },
   "dependencies": {
