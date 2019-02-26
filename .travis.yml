@@ -14,10 +14,25 @@ branches:
 install:
   - yarn
 
-# deploy to firebase
-deploy:
-  provider: script
-  script: bash scripts/deploy.sh $PROJECT_ID $FIREBASE_TOKEN
-  skip_cleanup: true
-  on:
-    branch: master
+jobs:
+  include:
+    # run tests
+    - stage: test
+      script:
+        yarn test
+    # run coverage
+    - stage: test coverage
+      if: (branch = master) AND (NOT (type IN (pull_request)))
+      script:
+        - yarn test:coveralls
+    # deploy to firebase
+    - stage: deploy to firebase
+      if: (branch = master) AND (NOT (type IN (pull_request)))
+      script:
+        - yarn build
+      deploy:
+        provider: script
+        script: bash scripts/deploy.sh $PROJECT_ID $FIREBASE_TOKEN
+        skip_cleanup: true
+        on:
+          branch: master

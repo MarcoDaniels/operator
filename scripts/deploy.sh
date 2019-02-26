@@ -3,9 +3,6 @@
 PROJECT_ID=${1}
 TOKEN=${2}
 
-# build application
-yarn build
-
 # install firebase tools
 npm install -g firebase-tools
 

@@ -1,7 +1,7 @@
 import { GetProjectQuery, ListProjectQuery, ListUserProjectQuery, ProjectQuery } from '../query'
 import { IProject, Project } from '../type'
 import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql'
-import { projectMock } from '../../__mocks__/project.mock'
+import { projectMock } from '../../__mocks__/data.mock'
 
 jest.mock('../../user/query', () => {
     return {ProjectCollaboratorsQuery: {type: {}}}

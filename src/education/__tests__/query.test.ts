@@ -1,7 +1,7 @@
 import { ListUserEducationQuery } from '../query'
 import { GraphQLList } from 'graphql'
-import { Education, EducationType } from '../type'
-import { educationMock } from '../../__mocks__/education.mock'
+import { Education, IEducation } from '../type'
+import { educationMock } from '../../__mocks__/data.mock'
 
 jest.mock('../data', () => {
     return {
@@ -21,7 +21,7 @@ describe('education query', () => {
         expect(data.description).toBe(Education.description)
 
         // @ts-ignore because of GraphQLResolveInfo
-        data.resolve({userName: 'this-user'}).then((education: EducationType) => {
+        data.resolve({userName: 'this-user'}).then((education: IEducation) => {
             expect(education).toBe(educationMock)
         })
     })

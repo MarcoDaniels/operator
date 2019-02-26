@@ -1,5 +1,5 @@
 import { dbCollectionMock } from '../../__mocks__/database.mocks'
-import { experienceMock } from '../../__mocks__/experience.mock'
+import { experienceMock } from '../../__mocks__/data.mock'
 import { getExperiences } from '../data'
 
 jest.mock('../../database', () => dbCollectionMock(experienceMock))

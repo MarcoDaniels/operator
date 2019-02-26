@@ -1,6 +1,6 @@
 import { GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 
-export interface SocialMediaType {
+export interface ISocialMedia {
     identifier: string
     name: string
     url: string

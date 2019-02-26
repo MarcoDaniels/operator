@@ -1,10 +1,9 @@
 import '../__mocks__/queries.mock'
 import { GetUser, GetUserQuery, ListUserQuery, ProjectCollaboratorsQuery, UserQuery } from '../query'
 import { IUser, User } from '../type'
-import { userMock } from '../../__mocks__/user.mock'
+import { userMock, projectMock } from '../../__mocks__/data.mock'
 import { GraphQLList, GraphQLNonNull } from 'graphql'
 import { Collection } from '../../collection'
-import { projectMock } from '../../__mocks__/project.mock'
 
 jest.mock('../data', () => {
     return {

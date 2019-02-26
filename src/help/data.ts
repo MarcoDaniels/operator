@@ -1,9 +1,9 @@
-import { HelpType } from './type'
+import { IHelp } from './type'
 import { dataBase } from '../database'
 
 const collection = dataBase.collection('help')
 
-export async function getHelp(args: HelpType) {
+export async function getHelp(args: IHelp) {
     let help: any = {}
 
     const query = collection.where('type', '==', args.type)

@@ -1,7 +1,7 @@
 import { ListUserSkillsQuery } from '../query'
 import { GraphQLList } from 'graphql'
 import { Skills } from '../type'
-import { skillsMock } from '../../__mocks__/skills.mock'
+import { skillsMock } from '../../__mocks__/data.mock'
 
 jest.mock('../data', () => {
     return {

@@ -1,5 +1,5 @@
 import { dbCollectionMock } from '../../__mocks__/database.mocks'
-import { userMock } from '../../__mocks__/user.mock'
+import { userMock } from '../../__mocks__/data.mock'
 import { getCollaborators, getUser, listUsers } from '../data'
 
 jest.mock('../../database', () => dbCollectionMock(userMock))

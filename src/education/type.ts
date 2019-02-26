@@ -1,6 +1,6 @@
 import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
 
-export interface EducationType {
+export interface IEducation {
     institution: string
     degree: string
     field: string

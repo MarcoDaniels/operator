@@ -1,6 +1,6 @@
 import { GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 
-export interface SkillsType {
+export interface ISkills {
     identifier: string
     name: string
 }

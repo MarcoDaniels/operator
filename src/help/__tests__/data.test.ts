@@ -1,5 +1,5 @@
 import { dbCollectionMock } from '../../__mocks__/database.mocks'
-import { helpMock } from '../../__mocks__/help.mocks'
+import { helpMock } from '../../__mocks__/data.mock'
 import { getHelp, listHelp } from '../data'
 
 jest.mock('../../database', () => dbCollectionMock(helpMock))

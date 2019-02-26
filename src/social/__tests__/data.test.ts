@@ -1,5 +1,5 @@
 import { dbCollectionMock } from '../../__mocks__/database.mocks'
-import { socialMediaMock } from '../../__mocks__/social.mock'
+import { socialMediaMock } from '../../__mocks__/data.mock'
 import { getSocialMedias } from '../data'
 
 jest.mock('../../database', () => dbCollectionMock(socialMediaMock))
