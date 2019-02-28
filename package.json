@@ -1,9 +1,13 @@
 {
   "name": "operator",
-  "version": "1.0.0",
-  "description": "operator provides a GraphQL API",
+  "description": "GraphQL Server API",
   "author": "Marco Daniel Martins <marcodanielmartins@gmail.com>",
   "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarcoDaniels/operator.git"
+  },
   "main": "build/index.js",
   "scripts": {
     "build": "rm -rf build/* && tsc --p tsconfig.prod.json --pretty",
