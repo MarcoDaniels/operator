@@ -20,6 +20,7 @@ describe('social query', () => {
         expect(data.type).toMatchObject(new GraphQLList(SocialMedia))
         expect(data.description).toBe(SocialMedia.description)
 
+        // @ts-ignore
         data.resolve({userName: 'user'}).then((social: object) => {
             expect(social).toBe(socialMediaMock)
         })

@@ -6,7 +6,7 @@ import { HelpQuery } from './help/query'
 const Query = new GraphQLObjectType({
     name: 'Query',
     description: 'Root query',
-    fields: () => ({
+    fields: {
         user: {
             type: UserQuery,
             description: UserQuery.description,
@@ -22,7 +22,7 @@ const Query = new GraphQLObjectType({
             description: ProjectQuery.description,
             resolve: () => { return {} }
         }
-    })
+    }
 })
 
 export const schema = new GraphQLSchema({
