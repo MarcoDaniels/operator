@@ -12,6 +12,7 @@
   "scripts": {
     "build": "rm -rf build/* && tsc --p tsconfig.prod.json --pretty",
     "serve": "yarn build && firebase serve --only hosting,functions",
+    "lint": "tslint --fix --project tslint.json src/**/*.ts",
     "test": "jest --collectCoverage=false",
     "test:coveralls": "jest && cat ./coverage/lcov.info | coveralls",
     "test:coverage": "jest"
