@@ -2,6 +2,7 @@ import { ListUserEducationQuery } from '../query'
 import { GraphQLList } from 'graphql'
 import { Education, IEducation } from '../type'
 import { educationMock } from '../../__mocks__/data.mock'
+import { ResolveInfoMock } from '../../__mocks__/graph.mock'
 
 jest.mock('../data', () => {
     return {
@@ -20,9 +21,9 @@ describe('education query', () => {
         expect(data.type).toMatchObject(new GraphQLList(Education))
         expect(data.description).toBe(Education.description)
 
-        // @ts-ignore because of GraphQLResolveInfo
-        data.resolve({userName: 'this-user'}).then((education: IEducation) => {
-            expect(education).toBe(educationMock)
-        })
+        data.resolve({userName: 'this-user'}, {}, {}, ResolveInfoMock)
+            .then((education: IEducation) => {
+                expect(education).toBe(educationMock)
+            })
     })
 })

@@ -4,6 +4,7 @@ import { IUser, User } from '../type'
 import { userMock, projectMock } from '../../__mocks__/data.mock'
 import { GraphQLList, GraphQLNonNull } from 'graphql'
 import { Collection } from '../../collection'
+import { ResolveInfoMock } from '../../__mocks__/graph.mock'
 
 jest.mock('../data', () => {
     return {
@@ -36,10 +37,10 @@ describe('user query', () => {
         expect(data.type).toMatchObject(new GraphQLNonNull(User))
         expect(data.description).toBe(User.description)
 
-        // @ts-ignore
-        data.resolve({}, {userName: 'this-user'}).then((user: IUser) => {
-            expect(user).toBe(userMock)
-        })
+        data.resolve({}, {userName: 'this-user'},{}, ResolveInfoMock)
+            .then((user: IUser) => {
+                expect(user).toBe(userMock)
+            })
     })
 
     it('should match GraphQL object for ListUserQuery', () => {
@@ -49,10 +50,10 @@ describe('user query', () => {
         // expect(data.type).toMatchObject(new GraphQLNonNull(Collection(User)))
         expect(data.description).toBe(Collection(User).description)
 
-        // @ts-ignore
-        data.resolve({}, {}).then((users: [IUser]) => {
-            expect(users).toEqual([userMock])
-        })
+        data.resolve({}, {}, {}, ResolveInfoMock)
+            .then((users: [IUser]) => {
+                expect(users).toEqual([userMock])
+            })
     })
 
     it('should match GraphQL fields for UserQuery', () => {
@@ -68,10 +69,10 @@ describe('user query', () => {
         expect(data.type).toBe(User)
         expect(data.description).toBe(User.description)
 
-        // @ts-ignore
-        data.resolve({userName: 'this-user'}).then((user: IUser) => {
-            expect(user).toEqual(userMock)
-        })
+        data.resolve({userName: 'this-user'}, {}, {}, ResolveInfoMock)
+            .then((user: IUser) => {
+                expect(user).toEqual(userMock)
+            })
     })
 
     it('should match GraphQL object for ProjectCollaboratorsQuery', () => {
@@ -80,9 +81,9 @@ describe('user query', () => {
         expect(data.type).toMatchObject(new GraphQLList(User))
         expect(data.description).toBe(User.description)
 
-        // @ts-ignore
-        data.resolve(projectMock).then((user: [IUser]) => {
-            expect(user).toEqual([userMock])
-        })
+        data.resolve(projectMock, {}, {}, ResolveInfoMock)
+            .then((user: [IUser]) => {
+                expect(user).toEqual([userMock])
+            })
     })
 })

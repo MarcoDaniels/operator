@@ -26,6 +26,7 @@ describe('Schema', () => {
 
         expect(fields).toHaveProperty('help')
         expect(fields.help.type).toMatchObject(HelpQuery)
+
         // @ts-ignore
         expect(fields.help.resolve()).toMatchObject({})
 

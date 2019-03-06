@@ -2,6 +2,7 @@ import { ListUserExperienceQuery } from '../query'
 import { GraphQLList } from 'graphql'
 import { Experience, IExperience } from '../type'
 import { experienceMock } from '../../__mocks__/data.mock'
+import { ResolveInfoMock } from '../../__mocks__/graph.mock'
 
 jest.mock('../../user/query', () => {
     return { GetUser: { type: {} } }
@@ -24,9 +25,9 @@ describe('experience query', () => {
         expect(data.type).toMatchObject(new GraphQLList(Experience))
         expect(data.description).toBe(Experience.description)
 
-        // @ts-ignore
-        data.resolve({userName: 'this-user'}).then((experience: IExperience) => {
-            expect(experience).toBe(experienceMock)
-        })
+        data.resolve({userName: 'this-user'}, {}, {}, ResolveInfoMock)
+            .then((experience: IExperience) => {
+                expect(experience).toBe(experienceMock)
+            })
     })
 })

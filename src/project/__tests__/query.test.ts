@@ -2,6 +2,7 @@ import { GetProjectQuery, ListProjectQuery, ListUserProjectQuery, ProjectQuery }
 import { IProject, Project } from '../type'
 import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql'
 import { projectMock } from '../../__mocks__/data.mock'
+import { ResolveInfoMock } from '../../__mocks__/graph.mock'
 
 jest.mock('../../user/query', () => {
     return {ProjectCollaboratorsQuery: {type: {}}}
@@ -33,8 +34,7 @@ describe('project query', () => {
            description: 'The project name'
         })
 
-        // @ts-ignore
-        projectQuery.resolve({}, {name: 'operator'})
+        projectQuery.resolve({}, {name: 'operator'}, {}, ResolveInfoMock)
             .then((project: IProject) => {
                 expect(project).toBe(projectMock)
             })
@@ -46,10 +46,10 @@ describe('project query', () => {
         expect(projectQuery.type).toEqual(new GraphQLList(Project))
         expect(projectQuery.description).toBe(Project.description)
 
-        // @ts-ignore
-        projectQuery.resolve().then((projects: [IProject]) => {
-            expect(projects).toEqual([projectMock])
-        })
+        projectQuery.resolve({}, {}, {}, ResolveInfoMock)
+            .then((projects: [IProject]) => {
+                expect(projects).toEqual([projectMock])
+            })
     })
 
     it('should match GraphQL fields for ProjectQuery', () => {
@@ -65,8 +65,7 @@ describe('project query', () => {
         expect(userProjectQuery.type).toEqual(new GraphQLList(Project))
         expect(userProjectQuery.description).toBe(Project.description)
 
-        // @ts-ignore
-        userProjectQuery.resolve({userName: 'this-user'})
+        userProjectQuery.resolve({userName: 'this-user'}, {}, {}, ResolveInfoMock)
             .then((projects: [IProject]) => {
                 expect(projects).toEqual([projectMock])
             })
