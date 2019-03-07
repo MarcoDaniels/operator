@@ -2,9 +2,9 @@ import { Project } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getProject, listProjects } from './data'
 import { IUser } from '../user/type'
-import { GraphQLFieldQueryType } from '../utils'
+import { IGraphQLFieldQuery } from '../utils'
 
-export const GetProjectQuery: GraphQLFieldQueryType<any, any, any> = {
+export const GetProjectQuery: IGraphQLFieldQuery<any, any, any> = {
     type: Project,
     description: Project.description,
     args: {
@@ -18,7 +18,7 @@ export const GetProjectQuery: GraphQLFieldQueryType<any, any, any> = {
     }
 }
 
-export const ListProjectQuery: GraphQLFieldQueryType<{}, {}, {}> = {
+export const ListProjectQuery: IGraphQLFieldQuery<{}, {}, {}> = {
     type: new GraphQLList(Project),
     description: Project.description,
     resolve: () => {
@@ -35,7 +35,7 @@ export const ProjectQuery = new GraphQLObjectType({
     })
 })
 
-export const ListUserProjectQuery: GraphQLFieldQueryType<IUser, {}, {}> = {
+export const ListUserProjectQuery: IGraphQLFieldQuery<IUser, {}, {}> = {
     type: new GraphQLList(Project),
     description: Project.description,
     resolve: (source: IUser) => {

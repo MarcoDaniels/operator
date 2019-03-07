@@ -15,6 +15,10 @@
     "curly": true,
     "eofline": false,
     "forin": true,
+    "interface-name": [
+      true,
+      "always-prefix"
+    ],
     "indent": [
       true,
       "spaces"

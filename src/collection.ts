@@ -5,12 +5,12 @@ export type CollectionArgumentsType = {
     perPage: number
 }
 
-interface CollectionMetadataType extends CollectionArgumentsType {
+interface ICollectionMetadataType extends CollectionArgumentsType {
     total: number
 }
 
 export type CollectionOutputType = {
-    metadata: CollectionMetadataType,
+    metadata: ICollectionMetadataType,
     data: any[]
 }
 
