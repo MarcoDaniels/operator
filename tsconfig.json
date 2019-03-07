@@ -21,7 +21,8 @@
     "strictFunctionTypes": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules",

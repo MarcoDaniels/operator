@@ -1,26 +1,17 @@
+import express from 'express'
+import cors from 'cors'
+import { ApolloServer } from 'apollo-server-express'
 import { https, HttpsFunction } from 'firebase-functions'
-import * as express from 'express'
-import * as cors from 'cors'
-import * as bodyParser from 'body-parser'
-import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 import { schema } from './schema'
 
-const server = express()
+const app = express()
 
-server.use(
-    '/graphql',
-    cors(),
-    bodyParser.json(),
-    graphqlExpress({
-        schema
-    })
-)
+app.use(cors())
 
-server.use(
-    '/graphiql',
-    graphiqlExpress({
-        endpointURL: '/operator/graphql'
-    })
-)
+const server = new ApolloServer({
+    schema: schema
+})
 
-export const operator: HttpsFunction = https.onRequest(server)
+server.applyMiddleware({ app })
+
+export const operator: HttpsFunction = https.onRequest(app)
