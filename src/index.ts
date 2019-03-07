@@ -1,5 +1,5 @@
-import express from 'express'
-import cors from 'cors'
+import * as express from 'express'
+import * as cors from 'cors'
 import { ApolloServer } from 'apollo-server-express'
 import { https, HttpsFunction } from 'firebase-functions'
 import { schema } from './schema'
