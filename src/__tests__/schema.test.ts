@@ -16,10 +16,10 @@ describe('Schema', () => {
     it('should match Query object type', () => {
         const query = schema.getQueryType()
 
-        expect(query.name).toBe('Query')
-        expect(query.description).toBe('Root query')
+        expect(query!.name).toBe('Query')
+        expect(query!.description).toBe('Root query')
 
-        const fields = query.getFields()
+        const fields = query!.getFields()
 
         // expect(fields).toHaveProperty('user')
         // expect(fields.user.type).toMatchObject(UserQuery)
