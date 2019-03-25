@@ -3,7 +3,7 @@ import { GetUser, GetUserQuery, ListUserQuery, ProjectCollaboratorsQuery, UserQu
 import { IUser, User } from '../type'
 import { userMock, projectMock } from '../../__mocks__/data.mock'
 import { GraphQLList, GraphQLNonNull } from 'graphql'
-import { Collection } from '../../collection'
+import { ObjectList } from '../../utils/objectList'
 import { ResolveInfoMock } from '../../__mocks__/graph.mock'
 
 jest.mock('../data', () => {
@@ -34,10 +34,10 @@ describe('user query', () => {
     it('should match GraphQL object for GetUserQuery', () => {
         const data = GetUserQuery
 
-        expect(data.type).toMatchObject(new GraphQLNonNull(User))
+        expect(data.type).toMatchObject(GraphQLNonNull(User))
         expect(data.description).toBe(User.description)
 
-        data.resolve({}, {userName: 'this-user'},{}, ResolveInfoMock)
+        data.resolve({}, {userName: 'this-user'}, {}, ResolveInfoMock)
             .then((user: IUser) => {
                 expect(user).toBe(userMock)
             })
@@ -47,8 +47,8 @@ describe('user query', () => {
         const data = ListUserQuery
 
         // TODO: figure out collection type match
-        // expect(data.type).toMatchObject(new GraphQLNonNull(Collection(User)))
-        expect(data.description).toBe(Collection(User).description)
+        // expect(data.type).toMatchObject(GraphQLNonNull(ObjectList(User)))
+        expect(data.description).toBe(ObjectList(User).description)
 
         data.resolve({}, {}, {}, ResolveInfoMock)
             .then((users: [IUser]) => {
@@ -78,7 +78,7 @@ describe('user query', () => {
     it('should match GraphQL object for ProjectCollaboratorsQuery', () => {
         const data = ProjectCollaboratorsQuery
 
-        expect(data.type).toMatchObject(new GraphQLList(User))
+        expect(data.type).toMatchObject(GraphQLList(User))
         expect(data.description).toBe(User.description)
 
         data.resolve(projectMock, {}, {}, ResolveInfoMock)

@@ -22,7 +22,7 @@ describe('experience query', () => {
     it('should match GraphQL object for ListUserExperienceQuery', () => {
         const data = ListUserExperienceQuery
 
-        expect(data.type).toMatchObject(new GraphQLList(Experience))
+        expect(data.type).toMatchObject(GraphQLList(Experience))
         expect(data.description).toBe(Experience.description)
 
         data.resolve({userName: 'this-user'}, {}, {}, ResolveInfoMock)

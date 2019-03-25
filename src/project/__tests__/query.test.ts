@@ -30,7 +30,7 @@ describe('project query', () => {
         expect(projectQuery.type).toBe(Project)
         expect(projectQuery.description).toBe(Project.description)
         expect(projectQuery.args!.name).toMatchObject({
-           type: new GraphQLNonNull(GraphQLString),
+           type: GraphQLNonNull(GraphQLString),
            description: 'The project name'
         })
 
@@ -43,7 +43,7 @@ describe('project query', () => {
     it('should match GraphQL object for ListProjectQuery', () => {
         const projectQuery = ListProjectQuery
 
-        expect(projectQuery.type).toEqual(new GraphQLList(Project))
+        expect(projectQuery.type).toEqual(GraphQLList(Project))
         expect(projectQuery.description).toBe(Project.description)
 
         projectQuery.resolve({}, {}, {}, ResolveInfoMock)
@@ -62,7 +62,7 @@ describe('project query', () => {
     it('should match GraphQL object for ListUserProjectQuery', () => {
         const userProjectQuery = ListUserProjectQuery
 
-        expect(userProjectQuery.type).toEqual(new GraphQLList(Project))
+        expect(userProjectQuery.type).toEqual(GraphQLList(Project))
         expect(userProjectQuery.description).toBe(Project.description)
 
         userProjectQuery.resolve({userName: 'this-user'}, {}, {}, ResolveInfoMock)

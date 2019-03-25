@@ -18,7 +18,7 @@ describe('education query', () => {
     it('should match GraphQL object for ListUserEducationQuery', () => {
         const data = ListUserEducationQuery
 
-        expect(data.type).toMatchObject(new GraphQLList(Education))
+        expect(data.type).toMatchObject(GraphQLList(Education))
         expect(data.description).toBe(Education.description)
 
         data.resolve({userName: 'this-user'}, {}, {}, ResolveInfoMock)

@@ -10,11 +10,11 @@ export const Skills: GraphQLObjectType = new GraphQLObjectType({
     description: 'Technical skills, programming skills and languages.',
     fields: () => ({
         identifier: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The skill identifier.'
         },
         name: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The skill name.'
         }
     })

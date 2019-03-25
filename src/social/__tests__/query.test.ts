@@ -18,7 +18,7 @@ describe('social query', () => {
     it('should match GraphQL object for ', () => {
         const data = ListUserSocialMediaQuery
 
-        expect(data.type).toMatchObject(new GraphQLList(SocialMedia))
+        expect(data.type).toMatchObject(GraphQLList(SocialMedia))
         expect(data.description).toBe(SocialMedia.description)
 
         data.resolve({userName: 'user'}, {}, {}, ResolveInfoMock)

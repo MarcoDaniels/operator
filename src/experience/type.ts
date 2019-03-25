@@ -19,11 +19,11 @@ export const Experience: GraphQLObjectType = new GraphQLObjectType({
             ...GetUser
         },
         position: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The position name.'
         },
         workplace: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The workplace name.'
         },
         from: {
@@ -35,11 +35,11 @@ export const Experience: GraphQLObjectType = new GraphQLObjectType({
             description: 'The end date of the experience.'
         },
         location: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The city or/and country.'
         },
         details: {
-            type: new GraphQLList(GraphQLString),
+            type: GraphQLList(GraphQLString),
             description: 'Details of the experience.'
         }
     })

@@ -1,6 +1,6 @@
 import '../__mocks__/queries.mock'
 import { User } from '../type'
-import { GraphQLList, GraphQLString } from 'graphql'
+import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql'
 
 describe('user type', () => {
 
@@ -12,28 +12,28 @@ describe('user type', () => {
         const fields = User.getFields()
 
         expect(fields).toHaveProperty('userName')
-        expect(fields.userName.type).toMatchObject(GraphQLString)
+        expect(fields.userName.type).toMatchObject(GraphQLNonNull(GraphQLString))
 
         expect(fields).toHaveProperty('name')
-        expect(fields.name.type).toMatchObject(GraphQLString)
+        expect(fields.name.type).toMatchObject(GraphQLNonNull(GraphQLString))
 
         expect(fields).toHaveProperty('email')
-        expect(fields.email.type).toMatchObject(GraphQLString)
+        expect(fields.email.type).toMatchObject(GraphQLNonNull(GraphQLString))
 
         expect(fields).toHaveProperty('title')
-        expect(fields.title.type).toMatchObject(GraphQLString)
+        expect(fields.title.type).toMatchObject(GraphQLNonNull(GraphQLString))
 
         expect(fields).toHaveProperty('image')
         expect(fields.image.type).toMatchObject(GraphQLString)
 
         expect(fields).toHaveProperty('welcomeMessage')
-        expect(fields.welcomeMessage.type).toMatchObject(new GraphQLList(GraphQLString))
+        expect(fields.welcomeMessage.type).toMatchObject(GraphQLList(GraphQLString))
 
         expect(fields).toHaveProperty('description')
-        expect(fields.description.type).toMatchObject(new GraphQLList(GraphQLString))
+        expect(fields.description.type).toMatchObject(GraphQLList(GraphQLString))
 
         expect(fields).toHaveProperty('interests')
-        expect(fields.interests.type).toMatchObject(new GraphQLList(GraphQLString))
+        expect(fields.interests.type).toMatchObject(GraphQLList(GraphQLString))
 
         expect(fields).toHaveProperty('skills')
         expect(fields).toHaveProperty('experience')

@@ -2,6 +2,7 @@ import { GetHelpQuery, HelpQuery, ListHelpQuery } from '../query'
 import { Help } from '../type'
 import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql'
 import { helpMock } from '../../__mocks__/data.mock'
+import { ResolveInfoMock } from '../../__mocks__/graph.mock'
 
 jest.mock('../data', () => {
     return {
@@ -25,11 +26,11 @@ describe('help query', () => {
         expect(helpQuery.type).toBe(Help)
         expect(helpQuery.description).toBe(Help.description)
         expect(helpQuery.args!.type).toMatchObject({
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The type of help'
         })
 
-        helpQuery.resolve({}, {type: 'help'})
+        helpQuery.resolve({}, {type: 'help'}, {}, ResolveInfoMock)
             .then((help: any) => {
                 expect(help).toBe(helpMock)
             })
@@ -38,10 +39,10 @@ describe('help query', () => {
     it('should match GraphQL object for ListHelpQuery', () => {
         const listQuery = ListHelpQuery
 
-        expect(listQuery.type).toEqual(new GraphQLList(Help))
+        expect(listQuery.type).toEqual(GraphQLList(Help))
         expect(listQuery.description).toBe(Help.description)
 
-        listQuery.resolve().then((help: any) => {
+        listQuery.resolve({}, {}, {}, ResolveInfoMock).then((help: any) => {
             expect(help).toMatchObject([helpMock])
         })
     })

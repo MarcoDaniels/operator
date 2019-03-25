@@ -6,9 +6,9 @@ describe('skills type', () => {
         const fields = Skills.getFields()
 
         expect(fields).toHaveProperty('identifier')
-        expect(fields.identifier.type).toMatchObject(new GraphQLNonNull(GraphQLString))
+        expect(fields.identifier.type).toMatchObject(GraphQLNonNull(GraphQLString))
 
         expect(fields).toHaveProperty('name')
-        expect(fields.name.type).toMatchObject(new GraphQLNonNull(GraphQLString))
+        expect(fields.name.type).toMatchObject(GraphQLNonNull(GraphQLString))
     })
 })

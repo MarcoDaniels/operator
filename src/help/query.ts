@@ -1,13 +1,14 @@
 import { Help, IHelp } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getHelp, listHelp } from './data'
+import { IGraphQLFieldQuery } from '../utils/GraphQLFieldQuery'
 
-export const GetHelpQuery = {
+export const GetHelpQuery: IGraphQLFieldQuery<any, any, any> = {
     type: Help,
     description: Help.description,
     args: {
         type: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The type of help'
         }
     },
@@ -17,8 +18,8 @@ export const GetHelpQuery = {
     }
 }
 
-export const ListHelpQuery = {
-    type: new GraphQLList(Help),
+export const ListHelpQuery: IGraphQLFieldQuery<any, any, any> = {
+    type: GraphQLList(Help),
     description: Help.description,
     resolve: () => {
         return listHelp()
