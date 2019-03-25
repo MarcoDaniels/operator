@@ -1,4 +1,4 @@
-import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 
 export type IHelp = {
     type: string
@@ -12,19 +12,19 @@ export const Help: GraphQLObjectType = new GraphQLObjectType({
     description: 'Help feature for CLI',
     fields: () => ({
         type: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The type of the feature'
         },
         description: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The description of the feature help'
         },
         usage: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The usage of feature help command'
         },
         content: {
-            type: new GraphQLList(GraphQLString),
+            type: GraphQLList(GraphQLString),
             description: 'Help content features'
         }
     })

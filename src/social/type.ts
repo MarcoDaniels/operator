@@ -12,15 +12,15 @@ export const SocialMedia: GraphQLObjectType = new GraphQLObjectType({
     description: 'Social Media accounts.',
     fields: () => ({
         identifier: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The social media string identifier(ex: facebook, instagram).'
         },
         name: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The name of the social media.'
         },
         url: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The url for the social media.'
         },
         displayName: {

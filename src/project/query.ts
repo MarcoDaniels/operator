@@ -2,14 +2,14 @@ import { Project } from './type'
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { getProject, listProjects } from './data'
 import { IUser } from '../user/type'
-import { IGraphQLFieldQuery } from '../utils'
+import { IGraphQLFieldQuery } from '../utils/GraphQLFieldQuery'
 
 export const GetProjectQuery: IGraphQLFieldQuery<any, any, any> = {
     type: Project,
     description: Project.description,
     args: {
         name: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The project name'
         }
     },
@@ -19,7 +19,7 @@ export const GetProjectQuery: IGraphQLFieldQuery<any, any, any> = {
 }
 
 export const ListProjectQuery: IGraphQLFieldQuery<{}, {}, {}> = {
-    type: new GraphQLList(Project),
+    type: GraphQLList(Project),
     description: Project.description,
     resolve: () => {
         return listProjects()
@@ -36,7 +36,7 @@ export const ProjectQuery = new GraphQLObjectType({
 })
 
 export const ListUserProjectQuery: IGraphQLFieldQuery<IUser, {}, {}> = {
-    type: new GraphQLList(Project),
+    type: GraphQLList(Project),
     description: Project.description,
     resolve: (source: IUser) => {
         return listProjects(source)

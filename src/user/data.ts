@@ -1,5 +1,5 @@
 import { dataBase } from '../database'
-import { CollectionArgumentsType, CollectionOutputType } from '../collection'
+import { IObjectListArguments, IObjectList } from '../utils/objectList'
 
 const collection = dataBase.collection('users')
 
@@ -17,8 +17,8 @@ export async function getUser(userName: string) {
     return user
 }
 
-export async function listUsers(args: CollectionArgumentsType) {
-    const users: CollectionOutputType = {
+export async function listUsers(args: IObjectListArguments) {
+    const users: IObjectList = {
         metadata: {
             page: args.page,
             perPage: args.perPage,

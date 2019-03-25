@@ -1,4 +1,4 @@
-import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 
 export interface IEducation {
     institution: string
@@ -15,15 +15,15 @@ export const Education: GraphQLObjectType = new GraphQLObjectType({
     description: 'Study degrees and courses.',
     fields: () => ({
         institution: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'University or institution name.',
         },
         degree: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'Degree or course name.'
         },
         field: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'Field of study.'
         },
         from: {
@@ -35,11 +35,11 @@ export const Education: GraphQLObjectType = new GraphQLObjectType({
             description: 'The end date of the education.'
         },
         location: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The city or/and country.'
         },
         details: {
-            type: new GraphQLList(GraphQLString),
+            type: GraphQLList(GraphQLString),
             description: 'Details of the education.'
         }
     })

@@ -31,7 +31,7 @@ export const helpMock: IHelp = {
 
 export const projectMock: IProject = {
     name: 'operator',
-    releaseDate: '2017',
+    homepage: 'www',
     description: 'operator is a GraphQL API',
     collaborators: ['me', 'you']
 }

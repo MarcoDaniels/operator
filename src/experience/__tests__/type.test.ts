@@ -18,10 +18,10 @@ describe('experience type', () => {
         expect(fields.user.type).toMatchObject(User)
 
         expect(fields).toHaveProperty('position')
-        expect(fields.position.type).toMatchObject(new GraphQLNonNull(GraphQLString))
+        expect(fields.position.type).toMatchObject(GraphQLNonNull(GraphQLString))
 
         expect(fields).toHaveProperty('workplace')
-        expect(fields.workplace.type).toMatchObject(GraphQLString)
+        expect(fields.workplace.type).toMatchObject(GraphQLNonNull(GraphQLString))
 
         expect(fields).toHaveProperty('from')
         expect(fields.from.type).toMatchObject(GraphQLString)
@@ -30,9 +30,9 @@ describe('experience type', () => {
         expect(fields.to.type).toMatchObject(GraphQLString)
 
         expect(fields).toHaveProperty('location')
-        expect(fields.location.type).toMatchObject(GraphQLString)
+        expect(fields.location.type).toMatchObject(GraphQLNonNull(GraphQLString))
 
         expect(fields).toHaveProperty('details')
-        expect(fields.details.type).toMatchObject(new GraphQLList(GraphQLString))
+        expect(fields.details.type).toMatchObject(GraphQLList(GraphQLString))
     })
 })

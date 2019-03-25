@@ -1,4 +1,4 @@
-import { GraphQLList, GraphQLObjectType, GraphQLString } from 'graphql'
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 import { ListUserExperienceQuery } from '../experience/query'
 import { ListUserProjectQuery } from '../project/query'
 import { ListUserEducationQuery } from '../education/query'
@@ -14,19 +14,19 @@ export const User: GraphQLObjectType = new GraphQLObjectType({
     description: 'This is user.',
     fields: () => ({
         userName: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The user userName.'
         },
         name: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The user name.'
         },
         email: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The user email.'
         },
         title: {
-            type: GraphQLString,
+            type: GraphQLNonNull(GraphQLString),
             description: 'The user title.'
         },
         image: {
@@ -34,15 +34,15 @@ export const User: GraphQLObjectType = new GraphQLObjectType({
             description: 'The user image url.'
         },
         welcomeMessage: {
-            type: new GraphQLList(GraphQLString),
+            type: GraphQLList(GraphQLString),
             description: 'The user welcome message.'
         },
         description: {
-            type: new GraphQLList(GraphQLString),
+            type: GraphQLList(GraphQLString),
             description: 'The user description.'
         },
         interests: {
-            type: new GraphQLList(GraphQLString),
+            type: GraphQLList(GraphQLString),
             description: 'The user interests.'
         },
         skills: {

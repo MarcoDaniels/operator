@@ -2,15 +2,15 @@ import { GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'g
 import { User, IUser } from './type'
 import { getCollaborators, getUser, listUsers } from './data'
 import { IProject } from '../project/type'
-import { Collection, CollectionArguments } from '../collection'
-import { IGraphQLFieldQuery } from '../utils'
+import { ObjectList, ObjectListArguments } from '../utils/objectList'
+import { IGraphQLFieldQuery } from '../utils/GraphQLFieldQuery'
 
 export const GetUserQuery: IGraphQLFieldQuery<any, any, any> = {
-    type: new GraphQLNonNull(User),
+    type: GraphQLNonNull(User),
     description: User.description,
     args: {
         userName: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLNonNull(GraphQLString),
             description: 'The user userName'
         }
     },
@@ -20,12 +20,12 @@ export const GetUserQuery: IGraphQLFieldQuery<any, any, any> = {
 }
 
 export const ListUserQuery: IGraphQLFieldQuery<any, any, any> = {
-    type: new GraphQLNonNull(Collection(User)),
-    description: Collection(User).description,
+    type: GraphQLNonNull(ObjectList(User)),
+    description: ObjectList(User).description,
     args: {
         filter: {
-            type: CollectionArguments,
-            description: CollectionArguments.description,
+            type: ObjectListArguments,
+            description: ObjectListArguments.description,
             defaultValue: { page: 1, perPage: 10 }
         }
     },
@@ -52,7 +52,7 @@ export const GetUser: IGraphQLFieldQuery<IUser, {}, {}> = {
 }
 
 export const ProjectCollaboratorsQuery: IGraphQLFieldQuery<IProject, {}, {}> = {
-    type: new GraphQLList(User),
+    type: GraphQLList(User),
     description: User.description,
     resolve: (source: IProject) => {
         return getCollaborators(source.collaborators)
