@@ -9,7 +9,8 @@ const app = express()
 app.use(cors())
 
 const server = new ApolloServer({
-    schema: schema
+    schema: schema,
+    playground: true,
 })
 
 server.applyMiddleware({ app })
