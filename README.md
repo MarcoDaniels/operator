@@ -5,7 +5,7 @@
 > _GraphQL Server API for [marcodaniels](https://marcodaniels.com/) consumer applications_
 
 ## Documentation
-This GraphQL server exposes a exposes [GraphiQL](https://us-central1-web-verse-services.cloudfunctions.net/operator/graphiql) interface.
+This GraphQL server exposes a [Playground](https://us-central1-web-verse-services.cloudfunctions.net/operator/graphql) interface.
 
 ## Development
 This project runs in a [firebase functions emulator](https://firebase.google.com/docs/functions/local-emulator).
@@ -16,5 +16,5 @@ yarn install
 # run storybook for development
 yarn serve
 
-# navigate to http://localhost:5000/operator/graphiql
+# navigate to http://localhost:5000/operator/graphql
 ```
