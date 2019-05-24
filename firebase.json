@@ -7,10 +7,6 @@
       {
         "source": "/operator/graphql",
         "function": "operator/graphql"
-      },
-      {
-        "source": "/operator/graphiql",
-        "function": "operator/graphql"
       }
     ],
     "ignore": [
