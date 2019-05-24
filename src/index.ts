@@ -10,7 +10,8 @@ app.use(cors())
 
 const server = new ApolloServer({
     schema: schema,
-    playground: true,
+    introspection: true,
+    playground: true
 })
 
 server.applyMiddleware({ app })
