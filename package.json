@@ -15,7 +15,8 @@
     "lint": "tslint --fix --project tslint.json src/**/*.ts",
     "test": "jest --collectCoverage=false",
     "test:coveralls": "jest && cat ./coverage/lcov.info | coveralls",
-    "test:coverage": "jest"
+    "test:coverage": "jest",
+    "clean": "rm -rf build/ coverage/"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -36,26 +37,23 @@
       "!<rootDir>/src/database.ts"
     ]
   },
-  "engines": {
-    "node": "8"
-  },
   "dependencies": {
-    "apollo-server-express": "^2.4.8",
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "firebase-admin": "^7.0.0",
-    "firebase-functions": "^2.2.0",
-    "graphql": "^14.1.1",
-    "graphql-tools": "^4.0.4"
+    "apollo-server-express": "2.12.0",
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "firebase-admin": "7.4.0",
+    "firebase-functions": "2.3.1",
+    "graphql": "14.6.0",
+    "graphql-tools": "4.0.7"
   },
   "devDependencies": {
-    "@types/express": "^4.16.1",
-    "@types/graphql": "^14.0.7",
-    "@types/jest": "^23.3.13",
-    "coveralls": "^3.0.3",
-    "jest": "^24.0.0",
-    "ts-jest": "^24.0.0",
-    "tslint": "^5.10.0",
-    "typescript": "^3.3.3333"
+    "@types/express": "4.17.6",
+    "@types/graphql": "14.5.0",
+    "@types/jest": "23.3.14",
+    "coveralls": "3.0.11",
+    "jest": "24.9.0",
+    "ts-jest": "24.3.0",
+    "tslint": "5.20.1",
+    "typescript": "3.8.3"
   }
 }
