@@ -5,11 +5,11 @@ import { getSocialMedias } from '../data'
 jest.mock('../../database', () => dbCollectionMock(socialMediaMock))
 
 describe('social data', () => {
-    it('should mock and resolve getSocialMedias collection', () => {
-        const socialMediaResult = getSocialMedias({userName: 'that-user'})
+  it('should mock and resolve getSocialMedias collection', () => {
+    const socialMediaResult = getSocialMedias({ userName: 'that-user' })
 
-        socialMediaResult.then(value => {
-            expect(value).toEqual([socialMediaMock])
-        })
+    socialMediaResult.then((value) => {
+      expect(value).toEqual([socialMediaMock])
     })
+  })
 })

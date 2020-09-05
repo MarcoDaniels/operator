@@ -5,11 +5,11 @@ import { getEducation } from '../data'
 jest.mock('../../database', () => dbCollectionMock(educationMock))
 
 describe('education data', () => {
-    it('should mock and resolve getEducation collection', async () => {
-        const educationResult = getEducation({userName: 'this-user'})
+  it('should mock and resolve getEducation collection', async () => {
+    const educationResult = getEducation({ userName: 'this-user' })
 
-        educationResult.then(value => {
-            expect(value).toEqual([educationMock])
-        })
+    educationResult.then((value) => {
+      expect(value).toEqual([educationMock])
     })
+  })
 })

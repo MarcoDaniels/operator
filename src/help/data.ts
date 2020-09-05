@@ -4,28 +4,29 @@ import { dataBase } from '../database'
 const collection = dataBase.collection('help')
 
 export async function getHelp(args: IHelp) {
-    let help: any = {}
+  let help: any = {}
 
-    const query = collection.where('type', '==', args.type)
-    await query.get()
-        .then((snapshot) => {
-            snapshot.forEach((doc) => {
-                help = doc.data()
-            })
-        })
+  const query = collection.where('type', '==', args.type)
+  await query.get().then((snapshot) => {
+    snapshot.forEach((doc) => {
+      help = doc.data()
+    })
+  })
 
-    return help
+  return help
 }
 
 export async function listHelp() {
-    let help: any[] = []
+  const help: any[] = []
 
-    await collection.orderBy('weight').get()
-        .then((snapshot) => {
-            snapshot.forEach((doc) => {
-                help.push(doc.data())
-            })
-        })
+  await collection
+    .orderBy('weight')
+    .get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        help.push(doc.data())
+      })
+    })
 
-    return help
+  return help
 }

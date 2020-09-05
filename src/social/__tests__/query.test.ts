@@ -2,28 +2,26 @@ import { ListUserSocialMediaQuery } from '../query'
 import { GraphQLList } from 'graphql'
 import { ISocialMedia, SocialMedia } from '../type'
 import { socialMediaMock } from '../../__mocks__/data.mock'
-import { ResolveInfoMock } from '../../__mocks__/graph.mock'
 
 jest.mock('../data', () => {
-    return {
-        getSocialMedias: jest.fn(() => {
-            return new Promise(resolve => {
-                resolve(socialMediaMock)
-            })
-        })
-    }
+  return {
+    getSocialMedias: jest.fn(() => {
+      return new Promise((resolve) => {
+        resolve(socialMediaMock)
+      })
+    }),
+  }
 })
 
 describe('social query', () => {
-    it('should match GraphQL object for ', () => {
-        const data = ListUserSocialMediaQuery
+  it('should match GraphQL object for ', () => {
+    const data = ListUserSocialMediaQuery
 
-        expect(data.type).toMatchObject(GraphQLList(SocialMedia))
-        expect(data.description).toBe(SocialMedia.description)
+    expect(data.type).toMatchObject(GraphQLList(SocialMedia))
+    expect(data.description).toBe(SocialMedia.description)
 
-        data.resolve({userName: 'user'}, {}, {}, ResolveInfoMock)
-            .then((social: ISocialMedia) => {
-                expect(social).toBe(socialMediaMock)
-            })
+    data.resolve({ userName: 'user' }, {}, {}, {} as any).then((social: ISocialMedia) => {
+      expect(social).toBe(socialMediaMock)
     })
+  })
 })

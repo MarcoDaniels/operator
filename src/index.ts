@@ -9,12 +9,12 @@ const app = express()
 app.use(cors())
 
 const server = new ApolloServer({
-    schema: schema,
-    introspection: true,
-    playground: {
-        endpoint: '/operator/graphql',
-        workspaceName: 'operator'
-    },
+  schema: schema,
+  introspection: true,
+  playground: {
+    endpoint: '/operator/graphql',
+    workspaceName: 'operator',
+  },
 })
 
 server.applyMiddleware({ app })
