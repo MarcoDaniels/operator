@@ -1,44 +1,46 @@
 export const dbGetMock = (mockObject: any) => {
-    return new Promise(resolve => {
-        resolve([{
-            data: jest.fn(() => {
-                return mockObject
-            })
-        }])
-    })
+  return new Promise((resolve) => {
+    resolve([
+      {
+        data: jest.fn(() => {
+          return mockObject
+        }),
+      },
+    ])
+  })
 }
 
 export function dbCollectionMock(objectMock: any) {
-    return {
-        dataBase: {
-            collection: jest.fn(() => {
+  return {
+    dataBase: {
+      collection: jest.fn(() => {
+        return {
+          where: jest.fn(() => {
+            return {
+              get: jest.fn(() => dbGetMock(objectMock)),
+              orderBy: jest.fn(() => {
                 return {
-                    where: jest.fn(() => {
-                        return {
-                            get: jest.fn(() => dbGetMock(objectMock)),
-                            orderBy: jest.fn(() => {
-                                return {
-                                    get: jest.fn(() => dbGetMock(objectMock))
-                                }
-                            })
-                        }
-                    }),
-                    orderBy: jest.fn(() => {
-                        return {
-                            get: jest.fn(() => dbGetMock(objectMock)),
-                            limit: jest.fn(() => {
-                                return {
-                                    offset: jest.fn(() => {
-                                        return {
-                                            get: jest.fn(() => dbGetMock(objectMock)),
-                                        }
-                                    })
-                                }
-                            })
-                        }
-                    })
+                  get: jest.fn(() => dbGetMock(objectMock)),
                 }
-            })
+              }),
+            }
+          }),
+          orderBy: jest.fn(() => {
+            return {
+              get: jest.fn(() => dbGetMock(objectMock)),
+              limit: jest.fn(() => {
+                return {
+                  offset: jest.fn(() => {
+                    return {
+                      get: jest.fn(() => dbGetMock(objectMock)),
+                    }
+                  }),
+                }
+              }),
+            }
+          }),
         }
-    }
+      }),
+    },
+  }
 }

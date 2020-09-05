@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn --frozen-lockfile
-      - run: yarn check:lint
+      - run: yarn lint
 
   test:
     runs-on: ubuntu-latest

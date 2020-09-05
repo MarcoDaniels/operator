@@ -1,0 +1,9 @@
+coverage/
+public/
+build/
+dist/
+
+docker/
+config/
+
+*.d.ts

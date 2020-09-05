@@ -5,11 +5,11 @@ import { listUserSkills } from '../data'
 jest.mock('../../database', () => dbCollectionMock(skillsMock))
 
 describe('skills data', () => {
-    it('should mock and resolve listUserSkills collection', () => {
-        const skillsResult = listUserSkills({userName: 'user'})
+  it('should mock and resolve listUserSkills collection', () => {
+    const skillsResult = listUserSkills({ userName: 'user' })
 
-        skillsResult.then(value => {
-            expect(value).toEqual([skillsMock])
-        })
+    skillsResult.then((value) => {
+      expect(value).toEqual([skillsMock])
     })
+  })
 })

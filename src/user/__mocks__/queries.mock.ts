@@ -1,19 +1,19 @@
 jest.mock('../../skills/query', () => {
-    return {ListUserSkillsQuery: {type: {}}}
+  return { ListUserSkillsQuery: { type: {} } }
 })
 
 jest.mock('../../experience/query', () => {
-    return {ListUserExperienceQuery: {type: {}}}
+  return { ListUserExperienceQuery: { type: {} } }
 })
 
 jest.mock('../../project/query', () => {
-    return {ListUseProjectQuery: {type: {}}}
+  return { ListUseProjectQuery: { type: {} } }
 })
 
 jest.mock('../../education/query', () => {
-    return {ListUseEducationQuery: {type: {}}}
+  return { ListUseEducationQuery: { type: {} } }
 })
 
 jest.mock('../../social/query', () => {
-    return {ListUseSocialMediaQuery: {type: {}}}
+  return { ListUseSocialMediaQuery: { type: {} } }
 })
