@@ -3,19 +3,18 @@
   "description": "GraphQL Server API",
   "author": "Marco Daniel Martins <marcodanielmartins@gmail.com>",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/MarcoDaniels/operator.git"
   },
   "main": "build/index.js",
   "scripts": {
-    "build": "rm -rf build/* && tsc --p tsconfig.prod.json --pretty",
+    "build": "rm -rf build/* && tsc --p tsconfig.prod.json",
     "serve": "yarn build && firebase serve --only hosting,functions",
-    "lint": "tslint --fix --project tslint.json src/**/*.ts",
-    "test": "jest --collectCoverage=false",
+    "check:lint": "tslint --project tslint.json src/**/*.ts",
+    "test": "jest",
     "test:coveralls": "jest && cat ./coverage/lcov.info | coveralls",
-    "test:coverage": "jest",
     "clean": "rm -rf build/ coverage/"
   },
   "jest": {
