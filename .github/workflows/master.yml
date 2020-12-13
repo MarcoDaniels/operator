@@ -1,0 +1,36 @@
+name: On Master
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build Project
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn --frozen-lockfile
+      - run: yarn build
+      - uses: actions/upload-artifact@master
+          with:
+            name: dist
+            path: dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Project
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@master
+          with:
+            name: dist
+            path: dist
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
