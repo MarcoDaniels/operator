@@ -16,6 +16,9 @@
     "test": "jest",
     "clean": "rm -rf build/ coverage/"
   },
+  "engines": {
+    "node": "10"
+  },
   "jest": {
     "moduleFileExtensions": [
       "ts",
