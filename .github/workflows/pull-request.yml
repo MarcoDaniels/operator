@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn --frozen-lockfile
-      - run: yarn test:coverals
+      - run: yarn test:coveralls
 
   build:
     runs-on: ubuntu-latest
