@@ -13,9 +13,9 @@ jobs:
       - run: yarn --frozen-lockfile
       - run: yarn build
       - uses: actions/upload-artifact@master
-          with:
-            name: dist
-            path: dist
+        with:
+          name: build
+          path: build
 
   deploy:
     runs-on: ubuntu-latest
@@ -25,8 +25,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@master
           with:
-            name: dist
-            path: dist
+            name: build
+            path: build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
