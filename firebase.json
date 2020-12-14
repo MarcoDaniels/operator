@@ -1,6 +1,6 @@
 {
   "functions": {
-    "engines": { "node": "10" },
+    "runtime": "nodejs10",
     "source": ""
   },
   "hosting": {
