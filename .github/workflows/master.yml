@@ -2,9 +2,20 @@ name: On Master
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    name: Run Coverage
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn --frozen-lockfile
+      - run: yarn test
+      - uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
   build:
     runs-on: ubuntu-latest
     name: Build Project
