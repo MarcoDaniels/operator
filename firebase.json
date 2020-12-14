@@ -1,5 +1,6 @@
 {
   "functions": {
+    "engines": { "node": "10" },
     "source": ""
   },
   "hosting": {
@@ -9,10 +10,6 @@
         "function": "operator/graphql"
       }
     ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }
