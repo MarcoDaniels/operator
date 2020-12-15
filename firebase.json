@@ -1,6 +1,5 @@
 {
   "functions": {
-    "runtime": "nodejs12",
     "source": ""
   },
   "hosting": {
