@@ -10,7 +10,7 @@ jobs:
     name: Check Lint
     steps:
       - uses: actions/checkout@v2
-      - run: yarn global add operator --ignore-engines
+      - run: yarn global add operator@1.1.0 --ignore-engines
       - run: yarn --frozen-lockfile
       - run: yarn lint
 
