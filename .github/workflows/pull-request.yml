@@ -10,7 +10,7 @@ jobs:
     name: Check Lint
     steps:
       - uses: actions/checkout@v2
-      - run: yarn --frozen-lockfile
+      - run: yarn
       - run: yarn lint
 
   test:
@@ -19,7 +19,7 @@ jobs:
     needs: [lint]
     steps:
       - uses: actions/checkout@v2
-      - run: yarn --frozen-lockfile
+      - run: yarn
       - run: yarn test
       - uses: coverallsapp/github-action@master
         with:
@@ -31,5 +31,5 @@ jobs:
     needs: [test]
     steps:
       - uses: actions/checkout@v2
-      - run: yarn --frozen-lockfile
+      - run: yarn
       - run: yarn build
