@@ -10,8 +10,9 @@ jobs:
     name: Check Lint
     steps:
       - uses: actions/checkout@v2
-      - run: yarn --ignore-engines
-      - run: yarn lint --ignore-engines
+      - run: yarn global add operator --ignore-engines
+      - run: yarn --frozen-lockfile
+      - run: yarn lint
 
   test:
     runs-on: ubuntu-latest
@@ -19,8 +20,9 @@ jobs:
     needs: [lint]
     steps:
       - uses: actions/checkout@v2
-      - run: yarn --ignore-engines
-      - run: yarn test --ignore-engines
+      - run: yarn global add operator --ignore-engines
+      - run: yarn --frozen-lockfile
+      - run: yarn test
       - uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -31,5 +33,6 @@ jobs:
     needs: [test]
     steps:
       - uses: actions/checkout@v2
-      - run: yarn --ignore-engines
-      - run: yarn build --ignore-engines
+      - run: yarn global add operator --ignore-engines
+      - run: yarn --frozen-lockfile
+      - run: yarn build
