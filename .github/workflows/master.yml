@@ -10,6 +10,9 @@ jobs:
     name: Run Coverage
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
       - run: yarn --frozen-lockfile
       - run: yarn test
       - uses: coverallsapp/github-action@master
@@ -21,6 +24,9 @@ jobs:
     name: Build Project
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
       - run: yarn --frozen-lockfile
       - run: yarn build
       - uses: actions/upload-artifact@master
