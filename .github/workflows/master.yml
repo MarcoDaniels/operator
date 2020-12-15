@@ -21,7 +21,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    name: Build Project
+    name: Build & Deploy
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -29,25 +29,4 @@ jobs:
           node-version: '12.x'
       - run: yarn --frozen-lockfile
       - run: yarn build
-      - uses: actions/upload-artifact@master
-        with:
-          name: build
-          path: build
-
-  deploy:
-    runs-on: ubuntu-latest
-    name: Deploy Project
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@master
-        with:
-          name: build
-          path: build
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+      - run: firebase deploy --only functions --project ${{ secrets.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }}
